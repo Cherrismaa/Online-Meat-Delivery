@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: white;
+    }
+
+    .best-sellers-section {
+      padding: 20px;
+    }
+
+    .best-sellers-heading {
+      width: 1050px;
+      font-size: 30px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 30px;
+      margin-left: 142px;
+      background-color: aqua;
+    }
+
+    .product-carousel {
+      position: relative;
+      width: 80%;
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 10px;
+
+    }
+
+    .product-carousel-container {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .product-carousel-item {
+      flex: 0 0 auto;
+      margin-right: 10px;
+      border-radius: 10px;
+      overflow: hidden;
+
+    }
+
+    .product-container {
+      width: 250px;
+      /* Set the fixed width */
+      height: 300px;
+      margin-right: 20px;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 0 10px black; /* Shadow on all sides */
+      display: inline-block;
+      /* Make containers display inline */
+      margin-top: 15px;
+      margin-bottom: 15px;
+      margin-left: 15px;
+      /* Added margin between containers */
+    }
+
+    .product-image {
+      width: 100%;
+      /* Set the width to 100% for responsiveness */
+      height: 150px;
+      /* Set the fixed height */
+      object-fit: cover;
+      /* Maintain aspect ratio and cover the container */
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    .product-details {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      background-color: #fff;
+      height: 200px;
+    }
+
+    .product-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .product-name {
+      font-size: 19px;
+      color: #333;
+      margin-top: -7%;
+    }
+
+    .icon-favorite {
+      font-size: 2.0em;
+      cursor: pointer;
+      color: #ccc;
+      margin-top: -11%;
+    }
+
+    .icon-favorite.favorite {
+      color: red;
+    }
+
+    .product-price {
+      font-size: 0.8em;
+      color: #333;
+    }
+
+    .product-quantity {
+      font-size: 0.8em;
+      color: #555;
+    }
+
+    .Approx-Piece {
+      font-size: 0.8em;
+      color: #555;
+    }
+
+    .btn-add-to-cart,
+    .btn-buy-now {
+      /* Common button styles */
+      position: relative;
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      align-self: flex-start;
+      font-weight: bold;
+      font-size: 10px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      margin-bottom: 10px;
+      /* Added margin between buttons */
+      margin-right: 25px;
+    }
+
+    .btn-add-to-cart:hover,
+    .btn-buy-now:hover {
+      /* Button hover effect */
+      background-color: #0056b3;
+    }
+
+    .btn-add-to-cart .cart-animation {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+    }
+
+    .btn-add-to-cart.clicked .cart-animation {
+      display: block;
+    }
+
+    .cart-animation img {
+      max-width: 50px;
+      max-height: 50px;
+    }
+
+    .btn-buy-now {
+      /* Buy Now button specific styles */
+      background-color: #28a745;
+      /* Green color */
+    }
+
+    .btn-buy-now:hover {
+      background-color: #218838;
+      /* Darker green color on hover */
+    }
+
+    .product-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: -5px;
+      margin-top: 5px;
+
+    }
+
+    /* Nice Add to Cart Button Effect */
+    .btn-add-to-cart:before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -110%;
+      width: 300%;
+      height: 300%;
+      background: rgba(255, 255, 255, 0.1);
+      transition: all 0.4s ease;
+      border-radius: 50%;
+      z-index: 0;
+      transform: rotate(30deg);
+    }
+
+    .btn-add-to-cart:hover:before {
+      top: -10%;
+      left: -10%;
+      width: 120%;
+      height: 120%;
+      opacity: 0;
+    }
+
+    /* Nice Buy Now Button Effect */
+    .btn-buy-now:before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -110%;
+      width: 200%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.1);
+      transition: all 0.4s ease;
+      border: none;
+      z-index: 0;
+      transform: rotate(30deg);
+    }
+
+    .btn-buy-now:hover:before {
+      top: -10%;
+      left: -10%;
+      width: 120%;
+      height: 120%;
+      opacity: 0;
+    }
+
+    .product-carousel-control {
+      position: absolute;
+      top: 40%;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 1;
+      border-radius: 50%;
+      font-size: 20px;
+    }
+
+    .product-carousel-control.prev {
+      left: 130px;
+    }
+
+    .product-carousel-control.next {
+      right: 120px;
+    }
+
+
+  </style>
+</head>
+<body>
+  <section class="best-sellers-section">
+    <h2 class="best-sellers-heading">Best Sellers</h2>
+    <div id="carousel" class="product-carousel">
+      <div class="product-carousel-container">
+        <div class="product-carousel-item">
+          <div class="product-container">
+            <img class="product-image"
+              src="https://envato-shoebox-0.imgix.net/727b/ca33-4f73-470e-a7ba-c49b3ebca15f/DSC_2457.JPG?auto=compress%2Cformat&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&w=800&fit=max&markalign=center%2Cmiddle&markalpha=18&s=d73c55dabe11e88b275e68da24b0eda3"
+              alt="Product Image">
+            <div class="product-details">
+              <div class="product-header">
+                <div class="product-name">Tuna Fish</div>
+                <div class="icon-favorite" onclick="toggleFavorite(this)">♥</div>
+              </div>
+              <div class="product-price" id="productPrice1">Price: INR2000.00</div>
+              <div class="product-quantity">
+                Quantity:
+                <select onchange="updatePrice(this.value, 1)">
+                  <option value="4">Small</option>
+                  <option value="6">Medium</option>
+                  <option value="10">Large</option>
+                </select>
+              </div>
+              <div class="Approx-Piece" id="ApproxPiece1">Approx Pieces: 4</div>
+              <div class="product-buttons">
+                <button class="btn-add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                <!-- Buy Now button -->
+                <button class="btn-buy-now" onclick="buyNow()">Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Second Product Container -->
+        <div class="product-carousel-item">
+          <div class="product-container">
+            <img class="product-image"
+              src="https://envato-shoebox-0.imgix.net/twenty20/production/uploads/items/60aded02-366e-4c40-8280-07fe3c0918ff/source?auto=compress%2Cformat&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&w=800&fit=max&markalign=center%2Cmiddle&markalpha=18&s=d1cd0e1e04bc885aa397cf620432c2e4"
+              alt="Product Image">
+            <div class="product-details">
+              <div class="product-header">
+                <div class="product-name">White Prawn</div>
+                <div class="icon-favorite" onclick="toggleFavorite(this)">♥</div>
+              </div>
+              <div class="product-price" id="productPrice2">Price: INR25.00</div>
+              <div class="product-quantity">
+                Quantity:
+                <select onchange="updatePrice(this.value, 2)">
+                  <option value="4">Small</option>
+                  <option value="6">Medium</option>
+                  <option value="10">Large</option>
+                </select>
+              </div>
+              <div class="Approx-Piece" id="ApproxPiece2">Approx Pieces: 6</div>
+
+              <div class="product-buttons">
+                <button class="btn-add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                <!-- Buy Now button -->
+                <button class="btn-buy-now" onclick="buyNow()">Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-carousel-item">
+          <div class="product-container">
+            <img class="product-image"
+              src="https://envato-shoebox-0.imgix.net/4188/7c17-7cec-4d54-b624-974d2548e03c/kepitingDSCF0482.JPG?auto=compress%2Cformat&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&w=800&fit=max&markalign=center%2Cmiddle&markalpha=18&s=01c2db7afb86fb9e177570eb796af663"
+              alt="Product Image">
+            <div class="product-details">
+              <div class="product-header">
+                <div class="product-name">Blue Crab</div>
+                <div class="icon-favorite" onclick="toggleFavorite(this)">♥</div>
+              </div>
+              <div class="product-price" id="productPrice3">Price: INR20.00</div>
+              <div class="product-quantity">
+                Quantity:
+                <select onchange="updatePrice(this.value, 3)">
+                  <option value="4">Small</option>
+                  <option value="6">Medium</option>
+                  <option value="10">Large</option>
+                </select>
+              </div>
+              <div class="Approx-Piece" id="ApproxPiece3">Approx Pieces: 4</div>
+              <div class="product-buttons">
+                <button class="btn-add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                <!-- Buy Now button -->
+                <button class="btn-buy-now" onclick="buyNow()">Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-carousel-item">
+          <div class="product-container">
+            <img class="product-image"
+              src="https://envato-shoebox-0.imgix.net/70ed/08de-f878-49dc-a8c9-2c7540f47ee1/DSC_5109.JPG?auto=compress%2Cformat&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&w=800&fit=max&markalign=center%2Cmiddle&markalpha=18&s=e870325f3cdfecbf5f58429198e5788f"
+              alt="Product Image">
+            <div class="product-details">
+              <div class="product-header">
+                <div class="product-name">Seer Fish</div>
+                <div class="icon-favorite" onclick="toggleFavorite(this)">♥</div>
+              </div>
+              <div class="product-price" id="productPrice4">Price: INR20.00</div>
+              <div class="product-quantity">
+                Quantity:
+                <select onchange="updatePrice(this.value, 4)">
+                  <option value="4">Small</option>
+                  <option value="6">Medium</option>
+                  <option value="10">Large</option>
+                </select>
+              </div>
+              <div class="Approx-Piece" id="ApproxPiece4">Approx Pieces: 4</div>
+              <div class="product-buttons">
+                <button class="btn-add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                <!-- Buy Now button -->
+                <button class="btn-buy-now" onclick="buyNow()">Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-carousel-item">
+          <div class="product-container">
+            <img class="product-image"
+              src="https://envato-shoebox-0.imgix.net/9b13/a52b-21c2-439f-aa66-6d2314068175/20221201-DSC_7579.JPG?auto=compress%2Cformat&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&w=800&fit=max&markalign=center%2Cmiddle&markalpha=18&s=791d98f32022721a9c1519af68b41dab"
+              alt="Product Image">
+            <div class="product-details">
+              <div class="product-header">
+                <div class="product-name">Lobster</div>
+                <div class="icon-favorite" onclick="toggleFavorite(this)">♥</div>
+              </div>
+              <div class="product-price" id="productPrice5">Price: INR20.00</div>
+              <div class="product-quantity">
+                Quantity:
+                <select onchange="updatePrice(this.value, 5)">
+                  <option value="4">Small</option>
+                  <option value="6">Medium</option>
+                  <option value="10">Large</option>
+                </select>
+              </div>
+              <div class="Approx-Piece" id="ApproxPiece5">Approx Pieces: 4</div>
+              <div class="product-buttons">
+                <button class="btn-add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                <!-- Buy Now button -->
+                <button class="btn-buy-now" onclick="buyNow()">Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-carousel-item">
+          <div class="product-container">
+            <img class="product-image"
+              src="https://envato-shoebox-0.imgix.net/c96a/988e-37bb-4659-8bea-810dc6844035/IMG_6790.jpg?auto=compress%2Cformat&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&w=800&fit=max&markalign=center%2Cmiddle&markalpha=18&s=546d5330476fc26b12fb9c351f5f35e2"
+              alt="Product Image">
+            <div class="product-details">
+              <div class="product-header">
+                <div class="product-name">Black Pomfret</div>
+                <div class="icon-favorite" onclick="toggleFavorite(this)">♥</div>
+              </div>
+              <div class="product-price" id="productPrice6">Price: INR20.00</div>
+              <div class="product-quantity">
+                Quantity:
+                <select onchange="updatePrice(this.value, 6)">
+                  <option value="4">Small</option>
+                  <option value="6">Medium</option>
+                  <option value="10">Large</option>
+                </select>
+              </div>
+              <div class="Approx-Piece" id="ApproxPiece6">Approx Pieces: 4</div>
+              <div class="product-buttons">
+                <button class="btn-add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                <!-- Buy Now button -->
+                <button class="btn-buy-now" onclick="buyNow()">Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-carousel-item">
+          <div class="product-container">
+            <img class="product-image"
+              src="https://envato-shoebox-0.imgix.net/2279/a252-6baf-4ace-a2fe-ad643309fb93/128079.jpg?auto=compress%2Cformat&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&w=800&fit=max&markalign=center%2Cmiddle&markalpha=18&s=0860e48636312caa2982c9387a3ae2b3"
+              alt="Product Image">
+            <div class="product-details">
+              <div class="product-header">
+                <div class="product-name">Anchovies</div>
+                <div class="icon-favorite" onclick="toggleFavorite(this)">♥</div>
+              </div>
+              <div class="product-price" id="productPrice7">Price: INR2000</div>
+              <div class="product-quantity">
+                Quantity:
+                <select onchange="updatePrice(this.value, 7)">
+                  <option value="4">Small</option>
+                  <option value="6">Medium</option>
+                  <option value="10">Large</option>
+                </select>
+              </div>
+              <div class="Approx-Piece" id="ApproxPiece7">Approx Pieces: 4</div>
+              <div class="product-buttons">
+                <button class="btn-add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                <!-- Buy Now button -->
+                <button class="btn-buy-now" onclick="buyNow()">Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-carousel-item">
+          <div class="product-container">
+            <img class="product-image"
+              src="https://envato-shoebox-0.imgix.net/c571/367f-6607-4050-bd6f-86071a66c11b/tcalmarasa4.jpg?auto=compress%2Cformat&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&w=800&fit=max&markalign=center%2Cmiddle&markalpha=18&s=c2d24141169c859ad9bdd50e819d162e"
+              alt="Product Image">
+            <div class="product-details">
+              <div class="product-header">
+                <div class="product-name">Squid</div>
+                <div class="icon-favorite" onclick="toggleFavorite(this)">♥</div>
+              </div>
+              <div class="product-price" id="productPrice8">Price: INR2000.00</div>
+              <div class="product-quantity">
+                Quantity:
+                <select onchange="updatePrice(this.value, 8)">
+                  <option value="4">Small</option>
+                  <option value="6">Medium</option>
+                  <option value="10">Large</option>
+                </select>
+              </div>
+              <div class="Approx-Piece" id="ApproxPiece8">Approx Pieces: 4</div>
+              <div class="product-buttons">
+                <button class="btn-add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+                <!-- Buy Now button -->
+                <button class="btn-buy-now" onclick="buyNow()">Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Add other carousel items here -->
+    <button class="product-carousel-control prev" onclick="moveCarousel(-1)">&#10094;</button>
+    <button class="product-carousel-control next" onclick="moveCarousel(1)">&#10095;</button>
+    </div>
+  </section>
+
+  <script>
+    let currentIndex = 0;
+    const items = document.querySelectorAll('.product-carousel-item');
+
+    function moveCarousel(direction) {
+      const newIndex = currentIndex + direction;
+      if (newIndex >= 0 && newIndex < items.length) {
+        currentIndex = newIndex;
+        const offset = -currentIndex * items[0].offsetWidth;
+        document.querySelector('.product-carousel-container').style.transform = `translateX(${offset}px)`;
+      }
+    }
+    
+  </script>
+</body>
+ 
+</html>
+
+

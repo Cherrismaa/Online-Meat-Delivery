@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our offers</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+  
+  /* Set fixed size for product card images */
+  .card-img-top {
+    width: 100%;
+    height: 200px; /* Adjust height as needed */
+    object-fit: cover;
+  }
+  
+  .product-price {
+    font-size: 1.2em;
+    color: #333;
+    font-family: 'Times New Roman'; /* Set font to Times New Roman */
+  }
+
+    .Our offers {
+      width: 1050px;
+      font-size: 30px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 30px;
+      margin-left: 142px;
+      background-color: rgb(51, 255, 0);
+    }
+    .secondary-header {
+            background-color: #DAE4E8;
+            width: 100%;
+            padding: 5px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-links ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links ul li {
+            margin-left: 100px;
+        }
+
+        .nav-links ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: medium;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #DAE4E8;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #DAE4E8;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            animation: fadeIn 0.3s ease;
+            width: 150px;
+        }
+
+        .sub-dropdown {
+            position: relative;
+            width:130px;
+        }
+
+        .sub-dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #DAE4E8;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            left: 100%;
+            top: 0;
+            width: 200px;
+        }
+
+        .sub-dropdown:hover .sub-dropdown-content {
+            display: block;
+        }
+</style>
+</head>
+<body>
+  <header class="secondary-header">
+    <nav class="nav-links">
+        <ul>
+            <li class="dropdown">
+                <a href="#">Shop</a>
+                <div class="dropdown-content">
+                    <div class="sub-dropdown">
+                        <a href="#">Fish</a>
+                        <div class="sub-dropdown-content">
+                            <a href="productpage.html">Black Pomfret</a>
+                            <a href="#">White Pomfret</a>
+                            <a href="#">Seer Fish</a>
+                            <a href="#">King Fish</a>
+                            <a href="#">Sea Basa</a>
+                            <a href="#">Mackerel</a>
+                            <a href="#">Salmon Fish</a>
+                            <a href="#">Gray Mullet</a>
+                            <a href="#">Anchovy</a>
+                            <a href="#">Tuna</a>
+                         <!-- Add more fish items here -->
+                        </div>
+                    </div>
+                    <div class="sub-dropdown">
+                    <a href="#">Crab</a>
+                    <div class="sub-dropdown-content">
+                      <a href="#">Blue Crab</a>
+                      <a href="#">3 Dots Crab</a>
+                      <!-- Add more fish items here -->
+                  </div>
+                  </div>
+                  <div class="sub-dropdown">
+                    <a href="#">Prawns</a>
+                    <div class="sub-dropdown-content">
+                      <a href="#">Tiger</a>
+                      <a href="#">White</a>
+                      <a href="#">Red</a>
+                      <a href="#">Regular</a>
+                      <!-- Add more fish items here -->
+                  </div>
+                  </div>
+                    <a href="#">Squid</a>
+                    <a href="#">Lobster</a>
+                    <div class="sub-dropdown">
+                      <a href="#">Pickles</a>
+                        <div class="sub-dropdown-content">
+                            <a href="#">Fish Pickle</a>
+                            <a href="#">Prawns Pickle</a>
+                            </div>
+                    </div>
+                  </div>
+            </li>
+            <li class="dropdown">
+                <a href="recipe cart.html">Recipes</a>
+                <div class="dropdown-content">
+                    <a href="Frecipe.html">Fish Recipes</a>
+                    <a href="Precipe.html">Prawn Recipes</a>
+                    <a href="squidrecipe.html">Squid recipes</a>
+                    <a href="crabrecipe.html">Crab Recipes</a>
+                    <a href="lobRecipe.html">Lobster Recipes</a>
+                </div>
+            </li>
+            <li><a href="blogs.html">Blogs</a></li>
+            <li><a href="offerpage.html">Offers</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="container">
+  <section class="Our offers">
+    <h1 class="Our offers">Our offers</h1>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="card">
+        <img src="https://spencers.in/media/catalog/product/1/1/1176489_1_2.jpg" class="card-img-top" alt="Product 1">
+        <div class="card-body">
+          <h5 class="card-title">Grey mullet</h5>
+          <div class="product-price" id="productPrice7">Price: INR2000</div>
+          <a href="#" class="btn btn-primary">Buy Now</a>
+          <a href="#" class="btn btn-success">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card">
+        <img src="https://www.licious.in/blog/wp-content/uploads/2021/11/shutterstock_1285004545-750x750.jpg" class="card-img-top" alt="Product 2">
+        <div class="card-body">
+          <h5 class="card-title">Product</h5>
+          <div class="product-price" id="productPrice7">Price: INR2000</div>
+          <a href="#" class="btn btn-primary">Buy Now</a>
+          <a href="#" class="btn btn-success">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card">
+          <img src="https://thecornishfishmonger.co.uk/media/catalog/product/_/p/_ptcreative_thecornishfishmonger_sea-bass-farmed-9764.jpg?width=900&height=600&store=default&image-type=image" class="card-img-top" alt="Product 2">
+          <div class="card-body">
+            <h5 class="card-title">Product</h5>
+            <div class="product-price" id="productPrice7">Price: INR2000</div>
+            <a href="#" class="btn btn-primary">Buy Now</a>
+            <a href="#" class="btn btn-success">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card">
+          <img src="https://thecornishfishmonger.co.uk/media/catalog/product/_/p/_ptcreative_thecornishfishmonger_sea-bass-farmed-9764.jpg?width=900&height=600&store=default&image-type=image" class="card-img-top" alt="Product 2">
+          <div class="card-body">
+            <h5 class="card-title">Product</h5>
+            <div class="product-price" id="productPrice7">Price: INR2000</div>
+            <a href="#" class="btn btn-primary">Buy Now</a>
+            <a href="#" class="btn btn-success">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card">
+          <img src="https://spencers.in/media/catalog/product/1/1/1176489_1_2.jpg" class="card-img-top" alt="Product 2">
+          <div class="card-body">
+            <h5 class="card-title">Product</h5>
+            <div class="product-price" id="productPrice7">Price: INR2000</div>
+            <a href="#" class="btn btn-primary">Buy Now</a>
+            <a href="#" class="btn btn-success">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+    <div class="col-sm-3">
+      <div class="card">
+        <img src="https://spencers.in/media/catalog/product/1/1/1176489_1_2.jpg" class="card-img-top" alt="Product 3">
+        <div class="card-body">
+          <h5 class="card-title">Product</h5>
+          <div class="product-price" id="productPrice7">Price: INR2000</div>
+          <a href="#" class="btn btn-primary">Buy Now</a>
+          <a href="#" class="btn btn-success">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card">
+        <img src="https://spencers.in/media/catalog/product/1/1/1176489_1_2.jpg" class="card-img-top" alt="Product 4">
+        <div class="card-body">
+          <h5 class="card-title">Product</h5>
+          <div class="product-price" id="productPrice7">Price: INR2000</div>
+          <a href="#" class="btn btn-primary">Buy Now</a>
+          <a href="#" class="btn btn-success">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+

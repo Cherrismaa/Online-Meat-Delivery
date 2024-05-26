@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Address</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Basic styling for readability */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #82d2d5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #dae4e8;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgb(14, 14, 14);
+        }
+        .location-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .location-container button {
+            background-color: #199189;
+            color: rgb(217, 237, 246);
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .location-container button:hover {
+            background-color: #38d7e9;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 5px; /* Reduced margin-bottom */
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #199189;
+            color: rgb(217, 237, 246);
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        input[type="submit"]:hover {
+            background-color: #38d7e9;
+        }
+        .form-group {
+            margin-bottom: 15px; /* Reduced margin-bottom */
+        }
+        .form-group.inline {
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-group.inline input[type="text"] {
+            width: calc(50% - 5px);
+        }
+        .popup {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+        }
+        .popup::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+        .form-group:hover .popup {
+            visibility: visible;
+        }
+        #autoFillBtn {
+            order: -1;
+            margin-right: 10px;
+        }
+        .change-address {
+            margin-top: 20px;
+            display: block;
+        }
+        .required::after {
+            content: '*';
+            color: red;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="location-container">
+            <button id="getLocationBtn"><i class="fas fa-map-marker-alt"></i> My Location</button>
+        </div>
+        <h1>Customer Address</h1>
+        <form action="#" method="post" id="addressForm">
+            <div class="form-group">
+                <!-- <label for="name">Name</label>-->
+                <input type="text" id="name" name="name" placeholder="Name" required class="required">
+            </div>
+            <div class="form-group">
+                <!--<label for="contact_number">Contact Number:</label>-->
+                <input type="text" id="contact_number" name="contact_number" placeholder="Contact Number" required class="required">
+            </div>
+
+            <div class="form-group">
+                <!-- <label for="alternate_number">Alternate Number:</label>-->
+                <input type="text" id="alternate_number" name="alternate_number" placeholder="Alternate Number" required>
+            </div>
+
+            <div class="form-group inline">
+                <input type="text" id="pincode" name="pincode" placeholder="Pincode" required class="required">
+            </div>
+
+            <div class="form-group inline">
+                <input type="text" id="city" name="city" placeholder="City" required class="required">
+                <input type="text" id="state" name="state" placeholder="State" required class="required">
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="flat_building_name" name="flat_building_name" placeholder="Flat / Building Name" required class="required">
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="area_locality" name="area_locality" placeholder="Area/location" required class="required">
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="landmarks" placeholder="Landmarks" name="landmarks" required class="required">
+            </div>
+
+            <input type="submit" value="Save Address">
+        </form>
+        <a href="#" class="change-address">+Change Address</a> <!-- Assuming this is the link for changing address -->
+    </div>
+
+    <script>
+    document.getElementById('getLocationBtn').addEventListener('click', function() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+                fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const locality = data.locality;
+                        const city = data.city;
+                        const state = data.principalSubdivision;
+                        const pincode = data.postcode;
+
+                        document.getElementById('area_locality').value = locality;
+                        document.getElementById('city').value = city;
+                        document.getElementById('state').value = state;
+                        document.getElementById('pincode').value = pincode;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching location:', error);
+                    });
+            });
+        } else {
+            alert('Geolocation is not supported by this browser.');
+        }
+    });
+
+    document.getElementById('addressForm').addEventListener('submit', function(event) {
+        var nameInput = document.getElementById('name');
+        if (nameInput.value === "") {
+            event.preventDefault(); // Prevent form submission if the name is empty
+        }
+    });
+</script>
+
+</body>
+</html>

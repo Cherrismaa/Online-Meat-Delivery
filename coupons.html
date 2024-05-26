@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Coupon</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius:40px;
+            border-color: black;
+            overflow: hidden;
+
+        }
+
+        .coupon-header {
+            background-color: #5FD1D4;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .coupon-body {
+            padding: 20px;
+        }
+
+        .coupon {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f9f9f9;
+        }
+
+        .coupon-info {
+            font-size: 18px;
+        }
+
+        .coupon-code {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .apply-button, .copy-button {
+            background-color: green;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .copy-button {
+            background-color: #6c757d;
+        }
+
+        .copy-button:hover {
+            background-color: #5a6268;
+        }
+
+        .apply-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="coupon-header">
+            <h2>Available Coupons</h2>
+        </div>
+        <div class="coupon-body">
+            <div class="coupon">
+                <div class="coupon-info">
+                    <span class="coupon-name">Crab Special: </span>
+                    <span class="coupon-description">Get 15% off on all crab products</span>
+                </div>
+                <div class="coupon-code">CRAB15</div>
+                <button class="apply-button" onclick="applyCoupon('CRAB15')">Apply</button>
+                <button class="copy-button" onclick="copyCouponCode('CRAB15')">Copy Code</button>
+            </div>
+            <div class="coupon">
+                <div class="coupon-info">
+                    <span class="coupon-name">Lobster Deal: </span>
+                    <span class="coupon-description">Buy one lobster, get one free</span>
+                </div>
+                <div class="coupon-code">LOBSTERBOGO</div>
+                <button class="apply-button" onclick="applyCoupon('LOBSTERBOGO')">Apply</button>
+                <button class="copy-button" onclick="copyCouponCode('LOBSTERBOGO')">Copy Code</button>
+            </div>
+            <div class="coupon">
+                <div class="coupon-info">
+                    <span class="coupon-name">Tuna Fish Bonanza: </span>
+                    <span class="coupon-description">Get $10 off on all tuna fish</span>
+                </div>
+                <div class="coupon-code">TUNA10</div>
+                <button class="apply-button" onclick="applyCoupon('TUNA10')">Apply</button>
+                <button class="copy-button" onclick="copyCouponCode('TUNA10')">Copy Code</button>
+            </div>
+            <div class="coupon">
+                <div class="coupon-info">
+                    <span class="coupon-name">Prawn Party: </span>
+                    <span class="coupon-description">20% off on all prawn orders</span>
+                </div>
+                <div class="coupon-code">PRAWN20</div>
+                <button class="apply-button" onclick="applyCoupon('PRAWN20')">Apply</button>
+                <button class="copy-button" onclick="copyCouponCode('PRAWN20')">Copy Code</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function applyCoupon(couponCode) {
+            // Apply coupon logic here
+            alert("Coupon applied: " + couponCode);
+        }
+
+        function copyCouponCode(couponCode) {
+            // Copy coupon code to clipboard
+            navigator.clipboard.writeText(couponCode)
+                .then(() => {
+                    alert("Coupon code copied to clipboard: " + couponCode);
+                })
+                .catch(err => {
+                    console.error('Failed to copy: ', err);
+                });
+        }
+    </script>
+</body>
+</html>

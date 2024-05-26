@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refer and Earn</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .offer {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .offer-image {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+
+        .offer-details {
+            flex-grow: 1;
+        }
+
+        .offer h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .offer p {
+            margin: 0;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .share-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .share-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Refer and Earn</h1>
+
+        <div class="offer">
+            <img src="https://img.freepik.com/premium-vector/refer-friend-vector-illustration-concept_77399-43.jpg?w=900" alt="Refer a Friend" class="offer-image">
+            <div class="offer-details">
+                <h2>Refer a Friend</h2>
+                <p>Location: Anywhere</p>
+                <p>Flat Discount: $10</p>
+                <button class="share-button" onclick="share('Refer a Friend')">Share</button>
+            </div>
+        </div>
+
+        <div class="offer">
+            <img src="https://img.freepik.com/premium-vector/refer-friend-concept-with-businessman-shout-megaphone-come-out-from-big-smartphone_138260-1129.jpg?w=900" alt="Refer a Family Member" class="offer-image">
+            <div class="offer-details">
+                <h2>Refer a Family Member</h2>
+                <p>Location: United States</p>
+                <p>Flat Discount: $20</p>
+                <button class="share-button" onclick="share('Refer a Family Member')">Share</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function share(offerType) {
+            // Replace the following URL with your referral page URL
+            var referralPageUrl = "https://example.com/referral-page";
+            // Generate the referral link with the offer type
+            var referralLink = referralPageUrl + "?offer=" + offerType;
+            // Open the share dialog with the referral link
+            navigator.share({ title: "Check out this referral offer", text: "Join now and get exclusive discounts!", url: referralLink })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing:', error));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            overflow-x: hidden;
+        }
+
+        .custom-header-container {
+            width: 100%;
+        }
+
+        .custom-header {
+            background-color: #1C3342;
+            padding: 10px;
+            justify-content: space-between;
+            align-items: center;
+            display: flex;
+
+        }
+
+        .custom-header-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .custom-header-location,
+        .custom-header-email,
+        .custom-header-customer {
+            display: flex;
+            align-items: center;
+            margin-left: 30px;
+        }
+
+        .custom-header-location img,
+        .custom-header-email img,
+        .custom-header-customer img {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+        }
+
+        .custom-header-location p,
+        .custom-header-email p,
+        .custom-header-customer p {
+            margin: 0;
+            font-size: 1.0rem;
+            color: white;
+        }
+
+        .custom-header-nav {
+            margin-left: auto;
+        }
+
+        .first-header {
+            background-color: #5FD1D4;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logos {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-left: 30px;
+        }
+
+        .logo img {
+            width: 70px;
+            margin-right: 20px;
+            border-radius: 100%;
+        }
+
+        .logo-title img {
+            width: 150px;
+            height: 50px;
+            margin-right: 20px;
+        }
+
+        .location-details {
+            display: flex;
+            align-items: center;
+        }
+
+        .location-details img {
+            width: 25px;
+            height: 25px;
+            margin-right: 0.5rem;
+        }
+
+        .location-details #location {
+            color: black;
+            font-weight: bolder;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: medium;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 5px 23px 5px 23px;
+            border: 1px solid black;
+            border-radius: 20px;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Search_Icon.svg/768px-Search_Icon.svg.png');
+            background-position: 5px center;
+            background-repeat: no-repeat;
+            background-size: 20px;
+        }
+
+        .utility-icons {
+            display: flex;
+            align-items: center;
+            margin-right: 28px;
+        }
+
+        .utility-icons img {
+            height: 25px;
+            margin-left: 20px;
+        }
+
+        .secondary-header {
+            background-color: #DAE4E8;
+            width: 100%;
+            padding: 5px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-links ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links ul li {
+            margin-left: 100px;
+        }
+
+        .nav-links ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: medium;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #DAE4E8;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #DAE4E8;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            animation: fadeIn 0.3s ease;
+            width: 150px;
+        }
+
+        .sub-dropdown {
+            position: relative;
+            width:130px;
+        }
+
+        .sub-dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #DAE4E8;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            left: 100%;
+            top: 0;
+            width: 200px;
+        }
+
+        .sub-dropdown:hover .sub-dropdown-content {
+            display: block;
+        }
+
+        .social-media-logos {
+            display: flex;
+            align-items: center;
+        }
+
+        .social-media-logo {
+            margin-right: 20px;
+        }
+
+        .social-media-logo img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #333;
+        }
+
+        .posters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .poster {
+            position: relative;
+            width: calc(30% - 10px);
+            height: 600px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+
+        .poster img {
+            width: 100%;
+            height: 40%;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .actions {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .actions a {
+            color: #fff;
+            padding: 10px;
+            border-radius: 100%;
+            margin-left: 5px;
+            text-decoration: none;
+        }
+
+        .actions a img {
+            width: 30px;
+            height: auto;
+        }
+
+
+        .poster-content {
+            padding: 15px;
+            background-color: #fff;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .poster-content button {
+            margin-top: auto;
+        }
+
+        .poster-content h2 {
+            color: black;
+            margin-top: 0;
+        }
+
+        .poster-content p {
+            margin-bottom: 0;
+            line-height: 1.6;
+            color: black;
+        }
+
+        .poster a{
+            text-decoration: none;
+
+        }
+
+        .posters .submit {
+            align-self: flex-end;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-right: 100px;
+            margin-top: 20px;
+        }
+
+        .submit:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            background-color: #f8f9fadc;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .first-footer-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .logo1 {
+            display: flex;
+            align-items: center;
+
+        }
+
+        .logo1 img {
+            width: 70px;
+            margin-right: 20px;
+            border-radius: 100%
+        }
+
+        .logo-title1 {
+            display: inline block;
+            position: relative;
+            margin-right: 20px;
+            padding-right: 20px;
+        }
+
+        .logo-title1::after {
+
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: calc(700% - 120px);
+            height: 1px;
+            background-color: #afacac;
+        }
+
+        .logo-title1 h1 {
+            font-size: 30px;
+        }
+
+        .logo-title1 h4 {
+            margin: 0;
+            font-size: 10px;
+            font-weight: bold;
+            font-family: cursive;
+        }
+
+        .partner-logos,
+        .affiliate-logos {
+            margin-top: 10px;
+        }
+
+        .partner-logos h4 {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .partner-logos img {
+            width: auto;
+            height: 50px;
+            margin-right: 20px;
+        }
+
+        .affiliate-logos img {
+            width: 30px;
+            margin-right: 20px;
+        }
+
+        .first-section,
+        .second-section,
+        .third-section,
+        .fourth-section {
+            width: 23%;
+            margin-bottom: 20px;
+        }
+
+        .second-section h2,
+        .third-section h2,
+        .fourth-section h2 {
+            margin-top: 80px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .second-section ul,
+        .third-section ul,
+        .fourth-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .second-section li,
+        .third-section li,
+        .fourth-section li {
+            margin-bottom: 5px;
+
+        }
+
+        .fourth-section li {
+            text-align: justify;
+        }
+
+        .fourth-section h2 {
+            margin-right: 60px;
+        }
+
+        .second-footer {
+            margin-top: 20px;
+            text-align: center;
+            background-color: #494848;
+            padding: 10px;
+            width: auto;
+
+        }
+
+        .second-footer-section p {
+            color: white;
+            text-align: center;
+            font-size: small;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="custom-header-container">
+        <header class="custom-header">
+            <div class="custom-header-content">
+                <div class="custom-header-email">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Circle-icons-mail.svg/2048px-Circle-icons-mail.svg.png"
+                        alt="Email">
+                    <p>Email@Example.com</p>
+                </div>
+                <div class="custom-header-customer">
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Circle-icons-phone.svg/1200px-Circle-icons-phone.svg.png">
+                    <p>+91 9652500716</p>
+                </div>
+                <div class="custom-header-location">
+                    <img src="https://cdn.iconscout.com/icon/free/png-256/free-location-3079544-2561454.png"
+                        alt="Location">
+                    <p>123 Street, India</p>
+                </div>
+            </div>
+            <nav class="custom-header-nav">
+                <div class="social-media-logos">
+                    <a href="#" class="social-media-logo"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                            alt="Facebook"></a>
+                    <a href="#" class="social-media-logo"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/2062095_application_chat_communication_logo_whatsapp_icon.svg/480px-2062095_application_chat_communication_logo_whatsapp_icon.svg.png"
+                            alt="WhatsApp"></a>
+                    <a href="#" class="social-media-logo"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png"
+                            alt="Instagram"></a>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <header class="first-header">
+        <div class="logos">
+            <div class="logo">
+                <img src="Sea Frenzy Logo.jpeg" alt="Logo">
+            </div>
+            <div class="logo-title">
+                <img src="Color logo - no background.png" alt="Logo">
+            </div>
+            <div class="location-details">
+                <img src="https://www.svgrepo.com/show/127575/location-sign.svg" alt="Location Icon">
+                <div id="location">Your location is being retrieved...</div>
+            </div>
+        </div>
+        <div class="utility-icons">
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+            </div>
+            <img src="https://www.svgrepo.com/show/113366/favorite.svg" alt="Favorite">
+            <img src="https://static-00.iconduck.com/assets.00/shopping-cart-icon-512x462-yrde1eu0.png" alt="Cart">
+            <img src="https://cdn-icons-png.flaticon.com/512/3682/3682281.png" alt="Profile">
+        </div>
+    </header>
+    <header class="secondary-header">
+        <nav class="nav-links">
+            <ul>
+                <li class="dropdown">
+                    <a href="#">Shop</a>
+                    <div class="dropdown-content">
+                        <div class="sub-dropdown">
+                            <a href="#">Fish</a>
+                            <div class="sub-dropdown-content">
+                                <a href="productpage.html">Black Pomfret</a>
+                                <a href="#">White Pomfret</a>
+                                <a href="#">Seer Fish</a>
+                                <a href="#">King Fish</a>
+                                <a href="#">Sea Basa</a>
+                                <a href="#">Mackerel</a>
+                                <a href="#">Salmon Fish</a>
+                                <a href="#">Gray Mullet</a>
+                                <a href="#">Anchovy</a>
+                                <a href="#">Tuna</a>
+                             <!-- Add more fish items here -->
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                        <a href="#">Crab</a>
+                        <div class="sub-dropdown-content">
+                          <a href="#">Blue Crab</a>
+                          <a href="#">3 Dots Crab</a>
+                          <!-- Add more fish items here -->
+                      </div>
+                      </div>
+                      <div class="sub-dropdown">
+                        <a href="#">Prawns</a>
+                        <div class="sub-dropdown-content">
+                          <a href="#">Tiger</a>
+                          <a href="#">White</a>
+                          <a href="#">Red</a>
+                          <a href="#">Regular</a>
+                          <!-- Add more fish items here -->
+                      </div>
+                      </div>
+                        <a href="#">Squid</a>
+                        <a href="#">Lobster</a>
+                        <div class="sub-dropdown">
+                          <a href="#">Pickles</a>
+                            <div class="sub-dropdown-content">
+                                <a href="#">Fish Pickle</a>
+                                <a href="#">Prawns Pickle</a>
+                                </div>
+                        </div>
+                      </div>
+                </li>
+                <li class="dropdown">
+                    <a href="recipe cart.html">Recipes</a>
+                    <div class="dropdown-content">
+                        <a href="Frecipe.html">Fish Recipes</a>
+                        <a href="Precipe.html">Prawn Recipes</a>
+                        <a href="squidrecipe.html">Squid recipes</a>
+                        <a href="crabrecipe.html">Crab Recipes</a>
+                        <a href="lobRecipe.html">Lobster Recipes</a>
+                    </div>
+                </li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="offerpage.html">Offers</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <script>
+        const LocationDiv = document.getElementById("location");
+        const show  = async () => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    async (position) => {
+                        const latitude = position.coords.latitude;
+                        const longitude = position.coords.longitude;
+                        const response = await fetch(
+                            `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
+                        );
+                        const data = await response.json();
+                        const area = data.address.suburb || data.address.city_district || data.address.town || data.address.village || data.address.city || data.address.state;
+                        const city = data.address.city;
+                        locationDiv.innerHTML = `
+                  <div>${area}</div>
+                  <div>${city}</div>
+              `;
+                    },
+                    (error) => {
+                        switch (error.code) {
+                            case error.PERMISSION_DENIED:
+                                locationDiv.innerText = "Please allow access to location";
+                                break;
+                            case error.POSITION_UNAVAILABLE:
+                                locationDiv.innerText = "Location information unavailable";
+                                break;
+                            case error.TIMEOUT:
+                                locationDiv.innerText = "The request to get user location timed out";
+                                break;
+                            default:
+                                locationDiv.innerText = "An unknown error occurred while retrieving the location";
+                                break;
+                        }
+                    }
+                );
+            } else {
+                locationDiv.innerText = "Geolocation is not supported by this browser";
+            }
+        };
+        window.onload = showLocation;
+    </script>
+
+    <div class="container">
+        <h1>Welcome to Seafood Blog</h1>
+        <p>Explore the Freshest Seafood and Culinary Delights</p>
+
+        <div class="posters">
+
+            <a href="blogspage.html"><div class="poster">
+                <img src="https://envato-shoebox-0.imgix.net/8c7f/1acc-0104-48ec-8d9f-6fd64307e36a/yfishshimpa14.jpg?auto=compress%2Cformat&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&w=800&fit=max&markalign=center%2Cmiddle&markalpha=18&s=c5898e6fd27038b0053d8de0e839bca1"
+                    alt="Lemon Garlic Grilled Shrimp">
+                <div class="actions">
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2/2267.png" alt="Like"></a>
+                    <a href="#"><img src="https://www.svgrepo.com/show/27444/share.svg" alt="Share"></a>
+                </div>
+
+                <a href="blogspage.html"><div class="poster-content">
+                    <h2>Recipe Showcase: Lemon Garlic Grilled Shrimp</h2>
+                    <p>Dive into the tantalizing world of seafood with our latest recipe feature! Learn how to make
+                        succulent lemon garlic grilled shrimp in just 30 minutes. With step-by-step instructions and
+                        mouthwatering photos, this dish is sure to become a family favorite.</p>
+                    <a class="submit" href="blogspage.html">Read More</a>
+                </div></a>
+                </div></a>
+
+            <a href="blogspage.html"><div class="poster">
+                <img src="https://envato-shoebox-0.imgix.net/415c/deda-28fe-442b-b698-d174b0aadaed/DSC_5095.JPG?auto=compress%2Cformat&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&w=800&fit=max&markalign=center%2Cmiddle&markalpha=18&s=58b8ef6e602f5d394b56763473218d9e"
+                    alt="Salmon">
+                <div class="actions">
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2/2267.png" alt="Like"></a>
+                    <a href="#"><img src="https://www.svgrepo.com/show/27444/share.svg" alt="Share"></a>
+                </div>
+                <a href="blogspage.html"><div class="poster-content">
+                    <h2>Ingredient Spotlight: Wild Alaskan Salmon</h2>
+                    <p>Discover the health benefits and culinary versatility of wild Alaskan salmon. From its rich
+                        omega-3 fatty acids to its delicate flavor profile and many health benifits, learn why this
+                        sustainable seafood option
+                        deserves a place on your dinner table.</p>
+                    <button class="submit">Read More</button>
+                </div></a>
+            </div></a>
+            <a href="blogspage.html"><div class="poster">
+                <img src="https://media.istockphoto.com/id/471238685/photo/indian-fishermen.jpg?s=612x612&w=0&k=20&c=NPljp3N6tFF0Cc04yeeuxjSSxorZM0zul_cNG93nykE="
+                    alt="Salmon">
+                <div class="actions">
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2/2267.png" alt="Like"></a>
+                    <a href="#"><img src="https://www.svgrepo.com/show/27444/share.svg" alt="Share"></a>
+                </div>
+                <a href="blogspage.html"><div class="poster-content">
+                    <h2> Behind the Scenes: Meet Our Fishermen</h2>
+                    <p>Get an insider's look at the hardworking fishermen who supply our premium seafood. Learn about
+                        their dedication to sustainable fishing practices and how they ensure the freshest catch makes
+                        its way to your doorstep.</p>
+                    <button class="submit">Read More</button>
+                </div></a>
+            </div></a>
+            <a href="blogspage.html"><div class="poster">
+                <img src="https://media.istockphoto.com/id/1202282754/photo/crayfish-and-seafood-table-top-view-lobsters-crayfish-shrimps-clams-oysters-sushi.jpg?s=612x612&w=0&k=20&c=_Yjy2uGFL9C8oL9ImzNQumjM9JY89dRavO6dshRT9wo="
+                    alt="Seafood">
+                <div class="actions">
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2/2267.png" alt="Like"></a>
+                    <a href="#"><img src="https://www.svgrepo.com/show/27444/share.svg" alt="Share"></a>
+                </div>
+                <a href="blogspage.html"><div class="poster-content">
+                    <h2> Health and Wellness: The Power of Seafood</h2>
+                    <p>Uncover the nutritional secrets of seafood and its impact on your health and well-being. From
+                        boosting brain function to supporting heart health, find out why seafood is a must-have addition
+                        to your diet and its rich omega-3 fatty acids </p>
+                    <button class="submit">Read More</button>
+                </div></a>
+            </div></a>
+            <a href="blogspage.html"><div class="poster">
+                <img src="https://miro.medium.com/v2/resize:fit:1358/1*-c9bf5PHJG-Megdu1NwsDw.jpeg"
+                    alt="Seafood lovers">
+                <div class="actions">
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2/2267.png" alt="Like"></a>
+                    <a href="#"><img src="https://www.svgrepo.com/show/27444/share.svg" alt="Share"></a>
+                </div>
+                <a href="blogspage.html"><div class="poster-content">
+                    <h2> Customer Spotlights: Stories from the Seafood Lovers Community</h2>
+                    <p>Meet our satisfied customers and hear their seafood success stories! From seafood enthusiasts to
+                        culinary novices, find out how our premium seafood delivery service has transformed their meals.
+                    </p>
+                    <button class="submit">Read More</button>
+                </div></a>
+            </div></a>
+            <a href="blogspage.html"><div class="poster">
+                <img src="https://previews.123rf.com/images/jackf/jackf1803/jackf180302125/96874669-positive-group-of-professional-chefs-of-fish-restaurant-inviting-to-degustation-of-dishes-of-seafood.jpg"
+                    alt="Cooking tips">
+                <div class="actions">
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2/2267.png" alt="Like"></a>
+                    <a href="#"><img src="https://www.svgrepo.com/show/27444/share.svg" alt="Share"></a>
+                </div>
+                <a href="blogspage.html"><div class="poster-content">
+                    <h2>Cooking Tips and Tricks: Mastering the Art of Seafood</h2>
+                    <p>Elevate your cooking game with our expert tips and tricks for preparing seafood like a pro. From
+                        proper thawing techniques to essential cooking methods, unlock the secrets to delicious seafood
+                        dishes.</p>
+                    <button class="submit">Read More</button>
+                </div></a>
+            </div></a>
+            <a href="blogspage.html"><div class="poster">
+                <img src="https://cosmosmagazine.com/wp-content/uploads/2021/03/850-GettyImages-12969865631.jpg"
+                    alt="Ocean Sustainability">
+                <div class="actions">
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2/2267.png" alt="Like"></a>
+                    <a href="#"><img src="https://www.svgrepo.com/show/27444/share.svg" alt="Share"></a>
+                </div>
+                <a href="blogspage.html"><div class="poster-content">
+                    <h2>Sustainability Spotlight: Preserving Our Oceans for Future Generations</h2>
+                    <p>Join us in our commitment to sustainability and ocean conservation. Learn about our efforts to
+                        support sustainable fishing practices and protect marine ecosystems for generations to come.</p>
+                    <button class="submit">Read More</button>
+                </div></a>
+            </div></a>
+            <a href="blogspage.html"><div class="poster">
+                <img src="https://envato-shoebox-0.imgix.net/c68b/cd88-f8ee-44bf-af7e-afbc43ea9aa6/2021-02-13+Shrimps_60.jpg?auto=compress%2Cformat&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&w=800&fit=max&markalign=center%2Cmiddle&markalpha=18&s=4fe08dc67996435a7df29d0cb3408102"
+                    alt="Seafood pairings">
+                <div class="actions">
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2/2267.png" alt="Like"></a>
+                    <a href="#"><img src="https://www.svgrepo.com/show/27444/share.svg" alt="Share"></a>
+                </div>
+                <a href="blogspage.html"><div class="poster-content">
+                    <h2>Seafood Pairings: Perfect Pairings for Every Palate</h2>
+                    <p>Elevate your seafood dining experience with our expertly curated pairings. From crisp white wines
+                        to zesty citrus sauces, discover the perfect accompaniments to complement your favorite seafood
+                        dishes.Every pairing with seafood is deadly combination.</p>
+                    <button class="submit">Read More</button>
+                </div></a>
+            </div></a>
+            <a href="blogspage.html"><div class="poster">
+                <img src="https://img.freepik.com/premium-photo/european-buffet-catering-food-various-seafood-celebration-party-concept-selective-focus_149301-1441.jpg"
+                    alt="Seafood Celebrations">
+                <div class="actions">
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2/2267.png" alt="Like"></a>
+                    <a href="#"><img src="https://www.svgrepo.com/show/27444/share.svg" alt="Share"></a>
+                </div>
+                <a href="blogspage.html"><div class="poster-content">
+                    <h2>Holiday and Special Occasion Menus: Seafood Celebrations</h2>
+                    <p>Make every occasion unforgettable with our special occasion menus. From elegant
+                        Christmas feasts to summer cookouts, find inspiration for creating memorable meals
+                        with our premium seafood offerings.</p>
+                    <button class="submit">Read More</button>
+                </div></a>
+            </div></a>
+            <!-- Add more posters here -->
+        </div>
+    </div>
+    <footer>
+        <!-- First Footer Section -->
+        <div class="first-footer-section">
+            <!-- First Section -->
+            <div class="first-section">
+                <div class="logo1">
+                    <img src="Sea Frenzy Logo.jpeg" alt="Logo">
+                    <div class="logo-title1">
+                        <h1>SeaFrenzy</h1>
+                    </div>
+                </div>
+                <div class="partner-logos">
+                    <h4>EXPERIENCE SEAFRENZY APP ON MOBILE</h4>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/2560px-Download_on_the_App_Store_Badge.svg.png"
+                        alt="Partner 1">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1280px-Google_Play_Store_badge_EN.svg.png"
+                        alt="Partner 2">
+                </div>
+                <h3>KEEP IN TOUCH</h3>
+                <div class="affiliate-logos">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                        alt="Affiliate 1">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/2062095_application_chat_communication_logo_whatsapp_icon.svg/480px-2062095_application_chat_communication_logo_whatsapp_icon.svg.png"
+                        alt="Affiliate 2">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png"
+                        alt="Affiliate 3">
+                </div>
+            </div>
+            <!-- Second Section -->
+            <div class="second-section">
+                <h2>USEFUL LINKS</h2>
+                <ul>
+                    <li><a href="#">Why SeaFrenzy?</a></li>
+                    <li><a href="#">Refer & Earn</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+            </div>
+            <!-- Third Section -->
+            <div class="third-section">
+                <h2>QUICK LINKS</h2>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">T&C</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                </ul>
+            </div>
+            <!-- Fourth Section -->
+            <div class="fourth-section">
+                <h2>CONTACT US</h2>
+                <ul>
+                    <li>Call: +91 9652500716</li>
+                    <li>Email: Email@Example.com</li>
+                    <li>OFFICE ADDRESS:
+                        DELIGHTFUL GOURMET PVT LTD
+                        Maruthi Infotech Center 11/1,12/1 B wing 1st
+                        Floor Amarjyothi layout Intermediate ring
+                        road Domlur, B.B.M.P East, Telangana-560071
+                        Hyderabad, Telangana - 500037</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <footer class="second-footer">
+        <div class="second-footer-section">
+            <p>© 2024 Delightful Gourmet Pvt Ltd. All Rights Reserved..</p>
+            <p>Seafrenzy is your one-stop fresh sea food delivery shop. In here, you get nothing but the freshest
+                seafood, delivered straight to your doorstep. Now you can buy sea food online anytime at your
+                convenience. Indulge in our diverse selection: Seafood (Fish, Prawns, Crabs) lobstsers on demand.
+                All our products are completely natural and healthy.</p>
+        </div>
+    </footer>
+</body>
+</html>

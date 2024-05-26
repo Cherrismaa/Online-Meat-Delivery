@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - Swiggy</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Basic styles */
+        body {
+            font-family: Arial, sans-serif;
+            color: #343a40;
+            margin: 0;
+            padding: 0;
+            background-color: #1C3342;/* Default background color */
+        }
+
+        /* Header styles */
+        .header {
+            background-color: #1C3342; /* Dark gray background */
+            padding: 10px;
+            text-align: center;
+            color: #ffffff; /* White text */
+        }
+
+        .header button {
+            background-color: #dc3545; /* Red button */
+            color: #ffffff; /* White text */
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 1200px;
+            margin: 50px auto; /* Increased margin */
+            padding: 40px; /* Increased padding */
+            background-color: #5FD1D4;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: flex; /* Added */
+            align-items: center; /* Added */
+        }
+
+        /* Background styles */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1542903660-095b582a0789');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.5);
+            border-radius: 10px;
+            z-index: -1;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width:200px;
+            height: 700px;
+            background-color: #fff;
+            box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            position: absolute;
+
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            padding: 35px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        .sidebar li a {
+            color: #343a40;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar li:hover {
+            background-color: #e9ecef;
+        }
+
+        .sidebar li i {
+            margin-right: 10px;
+        }
+
+        /* Main content styles */
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .main-content iframe {
+            width: 300%;
+            height: calc(100vh - 40px);
+            border: none;
+            border-radius: 10px;
+            height: 700px;
+        }
+
+        /* Profile icon styles */
+        .profile-icon {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1C3342;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 20px;
+            color: white;
+        }
+
+        .profile-name-container {
+            display: flex;
+            flex-direction: column; /* Added */
+        }
+
+        .profile-name {
+            margin-left: 10px;
+            font-size: 24px; /* Added */
+        }
+
+        /* Edit profile button styles */
+        #editProfileBtn {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            background-color: #dc3545;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 5px;
+
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-input {
+            margin-bottom: 10px;
+        }
+
+        .modal-input input {
+            width: calc(100% - 12px);
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .modal-button {
+            background-color: #dc3545;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        .modal-button:hover {
+            background-color: green;
+        }
+
+        /* Profile info list styles */
+        #profileInfo {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #profileInfo li {
+            margin-bottom: 5px;
+        }
+
+        #profileInfo li span {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background for the entire page -->
+    <div class="background"></div>
+
+    <!-- Container for the content -->
+    <div class="container">
+        <!-- Profile icon -->
+        <div class="profile-icon"><i class="fas fa-user-circle"></i></div>
+        <!-- Profile name container -->
+        <div class="profile-name-container">
+            <h1 class="profile-name" id="username"></h1>
+            <ul id="profileInfo"></ul>
+        </div>
+        <!-- Edit profile button -->
+        <button id="editProfileBtn">Edit Profile</button>
+    </div>
+
+    <!-- Container for the sidebar and main content -->
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <ul>
+                <li onclick="displayPage('orderz.html')"><a href="#"><i class="fas fa-shopping-cart"></i> My Orders</a></li>
+                <li onclick="displayPage('reviewz.html')"><a href="#"><i class="fas fa-star"></i> Reviews</a></li>
+                <li onclick="displayPage('refer &earnz.html')"><a href="#"><i class="fas fa-gift"></i> Refer & Earn</a></li>
+                <li onclick="displayPage('walletz.html')"><a href="#"><i class="fas fa-wallet"></i> Wallet</a></li>
+                <li onclick="displayPage('coupons.html')"><a href="#"><i class="fas fa-tags"></i> Coupons</a></li>
+                <li onclick="displayPage('logout.html')"><a href="before_signup.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </div>
+        <!-- Main content -->
+        <div class="main-content">
+            <iframe src="" id="pageContent"></iframe>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="editProfileModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-input">
+                <input type="text" id="modalUsername" placeholder="Username">
+            </div>
+            <div class="modal-input">
+                <input type="email" id="modalEmail" placeholder="Email">
+            </div>
+            <div class="modal-input">
+                <input type="tel" id="modalPhoneNumber" placeholder="Phone Number">
+                <button id="verifyPhoneNumber">Verify</button>
+            </div>
+            <button id="saveProfileBtn" class="modal-button">Save</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to display the modal
+        document.getElementById('editProfileBtn').addEventListener('click', function() {
+            document.getElementById('editProfileModal').style.display = 'block';
+        });
+
+        // Function to close the modal when clicking the close button or outside of it
+        var modal = document.getElementById('editProfileModal');
+        var closeBtn = document.getElementsByClassName('close')[0];
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Function to save profile information and display it
+        document.getElementById('saveProfileBtn').addEventListener('click', function() {
+            var username = document.getElementById('modalUsername').value.trim();
+            var email = document.getElementById('modalEmail').value.trim();
+            var phoneNumber = document.getElementById('modalPhoneNumber').value.trim();
+
+            // Display username
+            document.getElementById('username').textContent = username;
+
+            // Display input on the orange background
+            var profileInfo = document.getElementById('profileInfo');
+            profileInfo.innerHTML = '';
+
+            if (email !== '') {
+                var liEmail = document.createElement('li');
+                var spanEmail = document.createElement('span');
+                var textEmail = document.createTextNode('Email:');
+                spanEmail.appendChild(textEmail);
+                liEmail.appendChild(spanEmail);
+                liEmail.appendChild(document.createTextNode(email));
+                profileInfo.appendChild(liEmail);
+            }
+
+            if (phoneNumber !== '') {
+                var liPhone = document.createElement('li');
+                var spanPhone = document.createElement('span');
+                var textPhone = document.createTextNode('Phone Number:');
+                spanPhone.appendChild(textPhone);
+                liPhone.appendChild(spanPhone);
+                liPhone.appendChild(document.createTextNode('\u00A0\u00A0\u00A0\u00A0' + phoneNumber)); // Adding 4 spaces
+                profileInfo.appendChild(liPhone);
+            }
+
+            modal.style.display = 'none';
+        });
+
+        // Function to verify phone number
+        document.getElementById('verifyPhoneNumber').addEventListener('click', function() {
+            // Add your phone number verification logic here
+            alert('Phone number verification sent.');
+        });
+
+        // Function to display selected page in iframe
+        function displayPage(page) {
+            document.getElementById('pageContent').src = page;
+        }
+    </script>
+</body>
+</html>

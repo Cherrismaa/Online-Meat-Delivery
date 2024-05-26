@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            background-size: cover;
+            background-image: url('https://img.freepik.com/free-photo/seafood-dish-assortment-copy-space_23-2148637885.jpg?w=1060&t=st=1711447743~exp=1711448343~hmac=b7887f27950756d10100fcb6f55f957168673da723964e89dff9002cddd53761');
+        }
+
+        table {
+            border-radius: 50px;
+            margin: 100px auto;
+            padding: 10px;
+            margin-right: 700px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(28, 27, 27, 0.76); /* Add box-shadow for the table */
+        }
+
+        button {
+            background-color: white;
+        }
+
+        .container {
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.2s;
+            width: 300px;
+            height: auto;
+            text-align: center;
+            justify-content: center;
+            margin: auto;
+            margin-left: auto; /* Add this line to move the container to the right */
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+            text-align: center; /* Center the content */
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+        }
+
+        .form-group input {
+            width: calc(100% - 5px); /* Adjusted width */
+            padding: 10px;
+            border: 2px solid rgba(0, 13, 19, 0.897);
+            border-radius: 10px;
+            box-sizing: border-box;
+            margin-right: 5px; /* Added margin */
+        }
+
+        .form-group button {
+            background-color: rgb(102, 213, 250);
+            color: black;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            white-space: pre;
+            width: 50%;
+            align-content: center;
+            margin: 0 auto; /* Center the button */
+        }
+
+        .form-group button:hover {
+            background-color: #0088fff1;
+        }
+
+        .form-toggle {
+            text-align: left;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            justify-content: space-between;
+        }
+
+        .form-toggle button {
+            color: black;
+            cursor: pointer;
+            width: 150px;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        #business-form {
+            display: none;
+            padding: 0 10px;
+        }
+
+        #business-form.active {
+            display: block;
+        }
+
+        .phone-group {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .phone-group input {
+            width: calc(70%);
+            margin-right: 5px; /* Adjusted margin */
+        }
+
+        .phone-group button {
+            width: calc(30% - 5px); /* Adjusted width */
+            margin-left: 5px; /* Added margin */
+        }
+
+        .create-account-link {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #061174; /* Darker color for the link */
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .create-account-link:hover {
+            text-decoration: underline;
+            font-style: unset;
+        }
+
+        /* Google Login Button Styles */
+        .google-btn {
+            background-color: rgba(158, 154, 154, 0.363);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-content: center;
+            margin: 0 auto;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .google-btn:hover {
+            background-color: #2f7ae5;
+        }
+
+        .google-btn img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <td>
+        <div class="container">
+            <div class="logo">
+                <img src="/seafrenzy logo.jpeg" alt="Logo">
+            </div>
+            <div id="individual-form" class="active">
+                <form onsubmit="return verifyOTP()">
+                    <div class="form-group">
+                        <div class="phone-group">
+                            <input type="text" name="phonenumber" placeholder="Email/Phone Number" required>
+                            <button>Get otp</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="otp" name="otp" placeholder="Enter otp" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Login</button>
+                    </div>
+                </form>
+            </div>
+            <div id="business-form">
+                <form onsubmit="return verifyOTP()">
+                    <div class="form-group">
+                        <input type="text" name="business_id" placeholder="Business Organisation" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="gst_number" placeholder="Gst Number" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Signup</button>
+                    </div>
+                </form>
+            </div>
+            <a href="create_account.html" class="create-account-link">Create account</a>
+            <!-- Google Login Button -->
+            <button class="google-btn">
+                <img src="/google logo.png" alt="Google Logo">
+                Login with Google
+            </button>
+        </div>
+    </td>
+</table>
+<script>
+    function toggleForm(formType) {
+    if (formType === 'individual') {
+        document.getElementById('individual-form').style.display = 'block';
+        document.getElementById('business-form').style.display = 'none';
+        document.querySelector('button[data-type="individual"]').style.backgroundColor = 'rgb(102, 213, 250)';
+        document.querySelector('button[data-type="business"]').style.backgroundColor = 'white'; // Reset background color
+    } else if (formType === 'business') {
+        document.getElementById('individual-form').style.display = 'none';
+        document.getElementById('business-form').style.display = 'block';
+        document.querySelector('button[data-type="individual"]').style.backgroundColor = 'white'; // Reset background color
+        document.querySelector('button[data-type="business"]').style.backgroundColor = 'rgb(102, 213, 250)';
+    }
+}
+
+    function generateOTP() {
+        // Simulate OTP generation logic
+        const generatedOTP = Math.floor(1000 + Math.random() * 9000);
+        alert('Your OTP is: ' + generatedOTP);
+        // Store the generated OTP in the hidden input field
+        document.querySelector('input[name="Otp"]').value = generatedOTP;
+    }
+    function verifyOTP() {
+        // Simulate OTP verification logic
+        const enteredOTP = document.querySelector('input[name="Otp"]').value;
+        const generatedOTP = document.querySelector
+    }
+</script>
+</body>
+</html>

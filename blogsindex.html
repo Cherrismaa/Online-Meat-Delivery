@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lemon Garlic Grilled Shrimp Recipe</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      overflow-x: hidden;
+    }
+
+    .custom-header-container {
+      width: 100%;
+    }
+
+    .custom-header {
+      background-color: #1c3342;
+      padding: 10px;
+      justify-content: space-between;
+      align-items: center;
+      display: flex;
+    }
+
+    .custom-header-content {
+      display: flex;
+      align-items: center;
+    }
+
+    .custom-header-location,
+    .custom-header-email,
+    .custom-header-customer {
+      display: flex;
+      align-items: center;
+      margin-left: 30px;
+    }
+
+    .custom-header-location img,
+    .custom-header-email img,
+    .custom-header-customer img {
+      width: 20px;
+      height: 20px;
+      margin-right: 0.5rem;
+    }
+
+    .custom-header-location p,
+    .custom-header-email p,
+    .custom-header-customer p {
+      margin: 0;
+      font-size: 1rem;
+      color: white;
+    }
+
+    .custom-header-nav {
+      margin-left: auto;
+    }
+
+    .first-header {
+      background-color: #5fd1d4;
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .logos {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      margin-left: 30px;
+    }
+
+    .logo img {
+      width: 70px;
+      margin-right: 20px;
+      border-radius: 100%;
+    }
+
+    .logo-title img {
+      width: 150px;
+      height: 50px;
+      margin-right: 20px;
+    }
+
+    .location-details {
+      display: flex;
+      align-items: center;
+    }
+
+    .location-details img {
+      width: 25px;
+      height: 25px;
+      margin-right: 0.5rem;
+    }
+
+    .location-details #location {
+      color: black;
+      font-weight: bolder;
+      font-family: "Times New Roman", Times, serif;
+      font-size: medium;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-bar input[type="text"] {
+      padding: 5px 23px 5px 23px;
+      border: 1px solid black;
+      border-radius: 20px;
+      background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Search_Icon.svg/768px-Search_Icon.svg.png");
+      background-position: 5px center;
+      background-repeat: no-repeat;
+      background-size: 20px;
+    }
+
+    .utility-icons {
+      display: flex;
+      align-items: center;
+      margin-right: 28px;
+    }
+
+    .utility-icons img {
+      height: 25px;
+      margin-left: 20px;
+    }
+
+    .secondary-header {
+      background-color: #dae4e8;
+      width: 100%;
+      padding: 5px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-links ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .nav-links ul li {
+      margin-left: 100px;
+    }
+
+    .nav-links ul li a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      font-size: medium;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #dae4e8;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: #333;
+      padding: 12px 16px;
+      display: block;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #dae4e8;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .social-media-logos {
+      display: flex;
+      align-items: center;
+    }
+
+    .social-media-logo {
+      margin-right: 20px;
+    }
+
+    .social-media-logo img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: whitesmoke;
+      border-radius: 8px;
+    }
+
+    .index {
+
+      border-radius: 8px;
+      margin-top: 30px;
+      /* Add space above the index */
+      padding: 10px;
+      /* Increase the width of the index container */
+    }
+
+    .index h3 {
+      font-size: 30px;
+      text-align: left;
+      margin-bottom: 10px;
+      margin-left: 80px;
+    }
+
+
+    .index ul li {
+      margin-bottom: 10px;
+      text-align: justify;
+    }
+
+    .index li a {
+      text-decoration: none;
+      color: black;
+
+    }
+
+    header {
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .blogs img {
+      display: block;
+      margin: 0 auto;
+      width: 700px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .blogs p {
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      background-color: rgb(230, 225, 225);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+
+    .section h2 {
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid rgb(182, 182, 182);
+      padding-bottom: 10px;
+    }
+
+    .section ul,
+    .section ol {
+      margin: 0;
+      padding: 0;
+    }
+
+    .section ul li,
+    .section ol li {
+      color: #555;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      background-color: #f8f9fadc;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .first-footer-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .logo1 {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo1 img {
+      width: 70px;
+      margin-right: 20px;
+      border-radius: 100%;
+    }
+
+    .logo-title1 {
+      display: inline block;
+      position: relative;
+      margin-right: 20px;
+      padding-right: 20px;
+    }
+
+    .logo-title1::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      width: calc(700% - 120px);
+      height: 1px;
+      background-color: #afacac;
+    }
+
+    .logo-title1 h1 {
+      font-size: 30px;
+    }
+
+    .logo-title1 h4 {
+      margin: 0;
+      font-size: 10px;
+      font-weight: bold;
+      font-family: cursive;
+    }
+
+    .partner-logos,
+    .affiliate-logos {
+      margin-top: 10px;
+    }
+
+    .partner-logos h4 {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .partner-logos img {
+      width: auto;
+      height: 50px;
+      margin-right: 20px;
+    }
+
+    .affiliate-logos img {
+      width: 30px;
+      margin-right: 20px;
+    }
+
+    .first-section,
+    .second-section,
+    .third-section,
+    .fourth-section {
+      width: 23%;
+      margin-bottom: 20px;
+    }
+
+    .second-section h2,
+    .third-section h2,
+    .fourth-section h2 {
+      margin-top: 80px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .second-section ul,
+    .third-section ul,
+    .fourth-section ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .second-section li,
+    .third-section li,
+    .fourth-section li {
+      margin-bottom: 5px;
+    }
+
+    .fourth-section li {
+      text-align: justify;
+    }
+
+    .fourth-section h2 {
+      margin-right: 60px;
+    }
+
+    .second-footer {
+      margin-top: 20px;
+      text-align: center;
+      background-color: #494848;
+      padding: 10px;
+      width: auto;
+    }
+
+    .second-footer-section p {
+      color: white;
+      text-align: center;
+      font-size: small;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="custom-header-container">
+    <header class="custom-header">
+      <div class="custom-header-content">
+        <div class="custom-header-email">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Circle-icons-mail.svg/2048px-Circle-icons-mail.svg.png"
+            alt="Email" />
+          <p>Email@Example.com</p>
+        </div>
+        <div class="custom-header-customer">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Circle-icons-phone.svg/1200px-Circle-icons-phone.svg.png" />
+          <p>+91 9652500716</p>
+        </div>
+        <div class="custom-header-location">
+          <img src="https://cdn.iconscout.com/icon/free/png-256/free-location-3079544-2561454.png" alt="Location" />
+          <p>123 Street, India</p>
+        </div>
+      </div>
+      <nav class="custom-header-nav">
+        <div class="social-media-logos">
+          <a href="#" class="social-media-logo"><img
+              src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+              alt="Facebook" /></a>
+          <a href="#" class="social-media-logo"><img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/2062095_application_chat_communication_logo_whatsapp_icon.svg/480px-2062095_application_chat_communication_logo_whatsapp_icon.svg.png"
+              alt="WhatsApp" /></a>
+          <a href="#" class="social-media-logo"><img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png"
+              alt="Instagram" /></a>
+        </div>
+      </nav>
+    </header>
+  </div>
+  <header class="first-header">
+    <div class="logos">
+      <div class="logo">
+        <img src="Sea Frenzy Logo.jpeg" alt="Logo" />
+      </div>
+      <div class="logo-title">
+        <img src="Color logo - no background.png" alt="Logo" />
+      </div>
+      <div class="location-details">
+        <img src="https://www.svgrepo.com/show/127575/location-sign.svg" alt="Location Icon" />
+        <div id="location">Your location is being retrieved...</div>
+      </div>
+    </div>
+    <div class="utility-icons">
+      <div class="search-bar">
+        <input type="text" placeholder="Search..." />
+      </div>
+      <img src="https://www.svgrepo.com/show/113366/favorite.svg" alt="Favorite" />
+      <img src="https://static-00.iconduck.com/assets.00/shopping-cart-icon-512x462-yrde1eu0.png" alt="Cart" />
+      <img src="https://cdn-icons-png.flaticon.com/512/3682/3682281.png" alt="Profile" />
+    </div>
+  </header>
+  <header class="secondary-header">
+    <nav class="nav-links">
+      <ul>
+        <li class="dropdown">
+          <a href="#">Shop</a>
+          <div class="dropdown-content">
+            <a href="#">Fish</a>
+            <a href="#">Crab</a>
+            <a href="#">Prawn</a>
+            <a href="#">Squid</a>
+            <a href="#">Lobster</a>
+          </div>
+        </li>
+        <li><a href="#">Recipes</a></li>
+        <li><a href="#">Blogs</a></li>
+        <li><a href="#">Offers</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <script>
+    const locationDiv = document.getElementById("location");
+    const showLocation = async () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          async (position) => {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            const response = await fetch(
+              `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
+            );
+            const data = await response.json();
+            const area =
+              data.address.suburb ||
+              data.address.city_district ||
+              data.address.town ||
+              data.address.village ||
+              data.address.city ||
+              data.address.state;
+            const city = data.address.city;
+            locationDiv.innerHTML = `
+                  <div>${area}</div>
+                  <div>${city}</div>
+              `;
+          },
+          (error) => {
+            switch (error.code) {
+              case error.PERMISSION_DENIED:
+                locationDiv.innerText = "Please allow access to location";
+                break;
+              case error.POSITION_UNAVAILABLE:
+                locationDiv.innerText = "Location information unavailable";
+                break;
+              case error.TIMEOUT:
+                locationDiv.innerText =
+                  "The request to get user location timed out";
+                break;
+              default:
+                locationDiv.innerText =
+                  "An unknown error occurred while retrieving the location";
+                break;
+            }
+          }
+        );
+      } else {
+        locationDiv.innerText =
+          "Geolocation is not supported by this browser";
+      }
+    };
+    window.onload = showLocation;
+  </script>
+  <div class="container">
+    <header>
+      <h1>Lemon Garlic Grilled Shrimp Recipe</h1>
+      <p>Indulge in a flavorful seafood delight!</p>
+    </header>
+
+    <div class="blogs">
+      <img
+        src="https://envato-shoebox-0.imgix.net/8c7f/1acc-0104-48ec-8d9f-6fd64307e36a/yfishshimpa14.jpg?auto=compress%2Cformat&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&w=800&fit=max&markalign=center%2Cmiddle&markalpha=18&s=c5898e6fd27038b0053d8de0e839bca1"
+        alt="Lemon Garlic Grilled Shrimp" />
+      <p>
+        Dive into the tantalizing world of seafood with our latest recipe
+        feature! Learn how to make succulent lemon garlic grilled shrimp in
+        just 30 minutes. With step-by-step instructions and mouthwatering
+        photos, this dish is sure to become a family favorite.
+      </p>
+    </div>
+    <div class="index">
+      <h3>Index</h3>
+      <ul>
+        <ul>
+          <li><a href="#benefits">Benefits of Lemon Garlic Grilled Shrimp</a></li>
+          <li><a href="#why">Why You'll Love This Recipe</a></li>
+          <li><a href="#tips">Tips for Perfect Lemon Garlic Grilled Shrimp</a></li>
+          <li><a href="#cooking">Let's Get Cooking!</a></li>
+        </ul>
+    </div>
+    <div class="section" id="benefits">
+      <h2>Benefits of Lemon Garlic Grilled Shrimp</h2>
+      <ul>
+        <li>
+          High in protein and low in calories, making it a healthy option for
+          any meal.
+        </li>
+        <li>
+          The combination of lemon and garlic adds flavor without the need for
+          heavy sauces or marinades.
+        </li>
+        <li>
+          Rich in antioxidants and essential nutrients, supporting overall
+          health and well-being.
+        </li>
+        <li>
+          Grilling enhances the natural sweetness of the shrimp while
+          imparting a smoky charred flavor.
+        </li>
+        <li>
+          Quick and easy to prepare, perfect for busy weeknights or casual
+          gatherings with friends.
+        </li>
+        <li>
+          A versatile dish that can be served as an appetizer, main course, or
+          added to salads and pasta dishes.
+        </li>
+      </ul>
+    </div>
+    <div class="section" id="why">
+      <h2>Why You'll Love This Recipe</h2>
+      <ul>
+        <li>Quick and easy to make</li>
+        <li>Bursting with vibrant flavors</li>
+        <li>Perfect for weeknight dinners or entertaining</li>
+        <li>Healthy and nutritious</li>
+      </ul>
+    </div>
+    <div class="section" id="tips">
+      <h2>Tips for Perfect Lemon Garlic Grilled Shrimp</h2>
+      <ul>
+        <li>Use fresh, high-quality ingredients for the best flavor.</li>
+        <li>Don't overcook the shrimp - they should be pink and opaque.</li>
+        <li>
+          Marinate the shrimp for at least 15 minutes for maximum flavor.
+        </li>
+        <li>Preheat the grill to medium-high heat before cooking.</li>
+        <li>Garnish with fresh parsley for a pop of color and flavor.</li>
+      </ul>
+    </div>
+    <div class="section" id="cooking">
+      <h2>Let's Get Cooking!</h2>
+      <p>
+        Follow these simple steps to make delicious Lemon Garlic Grilled
+        Shrimp:
+      </p>
+      <ol>
+        <li>
+          In a bowl, mix together garlic, olive oil, lemon juice, lemon zest,
+          salt, and pepper.
+        </li>
+        <li>
+          Add shrimp to the bowl and toss to coat evenly. Marinate for 15-30
+          minutes.
+        </li>
+        <li>
+          Preheat grill to medium-high heat. Thread shrimp onto skewers.
+        </li>
+        <li>
+          Grill shrimp for 2-3 minutes per side, or until pink and opaque.
+        </li>
+        <li>
+          Remove from grill and garnish with fresh parsley, if desired. Serve
+          hot and enjoy!
+        </li>
+      </ol>
+    </div>
+  </div>
+  <footer>
+    <!-- First Footer Section -->
+    <div class="first-footer-section">
+      <!-- First Section -->
+      <div class="first-section">
+        <div class="logo1">
+          <img src="Sea Frenzy Logo.jpeg" alt="Logo" />
+          <div class="logo-title1">
+            <h1>SeaFrenzy</h1>
+          </div>
+        </div>
+        <div class="partner-logos">
+          <h4>EXPERIENCE SEAFRENZY APP ON MOBILE</h4>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/2560px-Download_on_the_App_Store_Badge.svg.png"
+            alt="Partner 1" />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1280px-Google_Play_Store_badge_EN.svg.png"
+            alt="Partner 2" />
+        </div>
+        <h3>KEEP IN TOUCH</h3>
+        <div class="affiliate-logos">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+            alt="Affiliate 1" />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/2062095_application_chat_communication_logo_whatsapp_icon.svg/480px-2062095_application_chat_communication_logo_whatsapp_icon.svg.png"
+            alt="Affiliate 2" />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png"
+            alt="Affiliate 3" />
+        </div>
+      </div>
+      <!-- Second Section -->
+      <div class="second-section">
+        <h2>USEFUL LINKS</h2>
+        <ul>
+          <li><a href="#">Why SeaFrenzy?</a></li>
+          <li><a href="#">Refer & Earn</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+      </div>
+      <!-- Third Section -->
+      <div class="third-section">
+        <h2>QUICK LINKS</h2>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">T&C</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+      <!-- Fourth Section -->
+      <div class="fourth-section">
+        <h2>CONTACT US</h2>
+        <ul>
+          <li>Call: +91 9652500716</li>
+          <li>Email: Email@Example.com</li>
+          <li>
+            OFFICE ADDRESS: DELIGHTFUL GOURMET PVT LTD Maruthi Infotech Center
+            11/1,12/1 B wing 1st Floor Amarjyothi layout Intermediate ring
+            road Domlur, B.B.M.P East, Telangana-560071 Hyderabad, Telangana -
+            500037
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <footer class="second-footer">
+    <div class="second-footer-section">
+      <p>© 2024 Delightful Gourmet Pvt Ltd. All Rights Reserved..</p>
+      <p>
+        Seafrenzy is your one-stop fresh sea food delivery shop. In here, you
+        get nothing but the freshest seafood, delivered straight to your
+        doorstep. Now you can buy sea food online anytime at your convenience.
+        Indulge in our diverse selection: Seafood (Fish, Prawns, Crabs)
+        lobstsers on demand. All our products are completely natural and
+        healthy.
+      </p>
+    </div>
+  </footer>
+</body>
+
+</html>

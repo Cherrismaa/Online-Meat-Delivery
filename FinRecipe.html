@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            padding: 0;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            justify-content: center;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .custom-header-container {
+            width: 100%;
+        }
+
+        .custom-header {
+            background-color: #1C3342;
+            padding: 10px;
+            justify-content: space-between;
+            align-items: center;
+            display: flex;
+
+        }
+
+        .custom-header-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .custom-header-location,
+        .custom-header-email,
+        .custom-header-customer {
+            display: flex;
+            align-items: center;
+            margin-left: 30px;
+        }
+
+        .custom-header-location img,
+        .custom-header-email img,
+        .custom-header-customer img {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+        }
+
+        .custom-header-location p,
+        .custom-header-email p,
+        .custom-header-customer p {
+            margin: 0;
+            font-size: 1.0rem;
+            color: white;
+        }
+
+        .custom-header-nav {
+            margin-left: auto;
+        }
+
+        .first-header {
+            background-color: #5FD1D4;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logos {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-left: 30px;
+        }
+
+        .logo img {
+            width: 70px;
+            margin-right: 20px;
+            border-radius: 100%;
+        }
+
+        .logo-title img {
+            width: 150px;
+            height: 50px;
+            margin-right: 20px;
+        }
+
+        .location-details {
+            display: flex;
+            align-items: center;
+        }
+
+        .location-details img {
+            width: 25px;
+            height: 25px;
+            margin-right: 0.5rem;
+        }
+
+        .location-details #location {
+            color: black;
+            font-weight: bolder;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: medium;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 5px 23px 5px 23px;
+            border: 1px solid black;
+            border-radius: 20px;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Search_Icon.svg/768px-Search_Icon.svg.png');
+            background-position: 5px center;
+            background-repeat: no-repeat;
+            background-size: 20px;
+        }
+
+        .utility-icons {
+            display: flex;
+            align-items: center;
+            margin-right: 28px;
+        }
+
+        .utility-icons img {
+            height: 25px;
+            margin-left: 20px;
+        }
+
+        .secondary-header {
+            background-color: #DAE4E8;
+            width: 100%;
+            padding: 5px 0;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .nav-links ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links ul li {
+            margin-left: 100px;
+        }
+
+        .nav-links ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: medium;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #DAE4E8;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #DAE4E8;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .social-media-logos {
+            display: flex;
+            align-items: center;
+        }
+
+        .social-media-logo {
+            margin-right: 20px;
+        }
+
+        .social-media-logo img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .recipes img {
+            width: 700px;
+            height: 300px;
+            margin-left: 300px;
+            margin-top: 30px;
+        }
+
+        .recipes h3 {
+            margin-left: 580px;
+        }
+
+        .recipes h4 {
+            margin-left: 300px;
+            font-size: medium;
+            font-weight: bold;
+        }
+
+        .recipes p {
+            text-align: justify;
+            margin-left: 300px;
+            margin-right: 350px;
+            font-size: 17px;
+        }
+
+        .basic-details {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+            /* Adjust the margin as needed */
+            background-color: rgb(229, 231, 231);
+            width: 710px;
+            padding: 10px;
+            /* Add padding for better spacing */
+            margin-right: 50px;
+        }
+
+        .basic-details div {
+            display: flex;
+            align-items: center;
+        }
+
+        .basic-details img {
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            margin-right: 10px;
+            /* Remove margin-top property */
+        }
+
+        .basic-details h4 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+
+        .requirements {
+            margin-top: 30px;
+            margin-right: 30px;
+        }
+
+        .requirements button {
+            margin-right: 10px;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+
+        }
+
+        .logo-container img {
+            width: 70px;
+            height: auto;
+            float: left;
+        }
+
+        .logo-with-text {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-with-text h2 {
+            margin-left: 10px;
+            justify-content: space-between;
+        }
+
+        /* Style the dropdown button */
+        .dropbtn {
+            background-color: #fff;
+            color: #000;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown1 {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown button on hover & focus */
+        .dropbtn:hover,
+        .dropbtn:focus {
+            background-color: #f9f9f9;
+        }
+
+        /* Style the dropdown content */
+        .dropdown-content1 {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content1 a {
+            color: #000;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content1 a:hover {
+            background-color: #f9f9f9;
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown1:hover .dropdown-content1 {
+            display: block;
+        }
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        .dropdown1:hover .dropbtn {
+            background-color: #f9f9f9;
+        }
+
+        .form-content {
+            display: none;
+            margin-right: 220px;
+            text-align: center;
+        }
+
+
+        .form-content.active {
+            display: block;
+
+        }
+
+        .form-toggle {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+
+        }
+
+
+        .form-toggle button {
+            font-size: medium;
+            font-weight: bold;
+            margin-right: 10px;
+            border: none;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+
+        .form-toggle button:hover {
+            border-bottom: 2px solid black;
+            /* Change the color as needed */
+        }
+
+
+        .form-toggle button:first-child {
+            margin-right: 530px;
+            /* Adjust the margin as needed */
+        }
+
+
+        .highlighted {
+            background-color: rgb(161, 224, 245);
+        }
+
+        .requirements ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .requirements ul li {
+            margin-bottom: 5px;
+        }
+
+        .requirements ul li h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: normal;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .requirements ul li h4 img {
+            width: 60px;
+            height: 60px;
+            margin-left: 290px;
+        }
+
+        .requirements ul li h4 span {
+            margin-left: 10px;
+            font-size: 14px;
+            color: #7d7d7d;
+        }
+
+
+        .requirements p {
+            font-size: medium;
+            justify-content: center;
+            text-align: justify;
+            max-width: 800px;
+            margin: 10px;
+            margin-left: 300px;
+
+        }
+
+        .form-group {
+            justify-content: center;
+            display: flex;
+        }
+
+        .form-group button {
+            padding: 8px 16px;
+            font-size: 1rem;
+            background-color: #007bff;
+            /* Blue color */
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #0056b3;
+            /* Darker shade of blue on hover */
+        }
+
+
+        #ingredient-form ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            /* Wrap the items to the next line if needed */
+            justify-content: space-between;
+            margin-right: -5px;
+            margin-left: -5px;
+        }
+
+        #ingredient-form ul li {
+            flex-basis: calc(50% - 10px);
+            /* Set the width of each item to half of the container width with some margin */
+
+            /* Add margin between the items */
+            margin-right: 10px;
+        }
+
+        #ingredient-form ul li h4 {
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            #ingredient-form ul li {
+                flex-basis: 100%;
+                /* On smaller screens, make each item take up the full width */
+            }
+        }
+
+
+        .shop-ingredients h2 {
+            font-size: 25px;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+
+        .shop-ingredients h4 {
+            font-size: 20px;
+        }
+
+        .container {
+            width: 900px;
+        }
+
+        .ingredients-header {
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 50px;
+
+        }
+
+        .ingredient-item {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .ingredient-item h4,
+        h3 {
+            font-size: 18px;
+        }
+
+        .ingredient-item h2 {
+            font-size: 15px;
+        }
+
+        .ingredient-item .checkbox {
+            margin-right: 10px;
+        }
+
+        .ingredient-item img {
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+        }
+
+        .ingredient-details {
+            flex-grow: 1;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+
+        }
+
+        .quantity-control button {
+            width: 30px;
+            height: 30px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        .quantity {
+            margin: 0 10px;
+        }
+
+        .add-to-basket {
+            padding: 8px 16px;
+            font-size: 1rem;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+        .add-to-basket:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul,
+        li {
+            list-style-type: none;
+        }
+
+        li:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+
+        .form-shop {
+            cursor: pointer;
+            padding: 10px;
+            background-color: white;
+            width: 800px;
+            /* Adjust the width as needed */
+            text-align: center;
+        }
+
+        .form-shop button {
+            padding: 8px 16px;
+            font-size: 1rem;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 60px;
+        }
+
+        .form-shop button:hover {
+            background-color: #0056b3;
+        }
+
+        .shopping-apps {
+            margin-left: 500px;
+            margin-top: 50px;
+        }
+
+        .shopping-apps label {
+            font-weight: bold;
+            font-size: medium;
+        }
+
+        #zeptoForm,
+        #bigBasketForm {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer {
+            background-color: #f8f9fadc;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .first-footer-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .logo1 {
+            display: flex;
+            align-items: center;
+
+        }
+
+        .logo1 img {
+            width: 70px;
+            margin-right: 20px;
+            border-radius: 100%
+        }
+
+        .logo-title1 {
+            display: inline block;
+            position: relative;
+            margin-right: 20px;
+            padding-right: 20px;
+        }
+
+        .logo-title1::after {
+
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: calc(700% - 120px);
+            height: 1px;
+            background-color: #818080;
+        }
+
+        .logo-title1 h1 {
+            font-size: 30px;
+        }
+
+        .logo-title1 h4 {
+            margin: 0;
+            font-size: 10px;
+            font-weight: bold;
+            font-family: cursive;
+        }
+
+        .partner-logos,
+        .affiliate-logos {
+            margin-top: 10px;
+        }
+
+        .partner-logos h4 {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .partner-logos img {
+            width: auto;
+            height: 50px;
+            margin-right: 20px;
+        }
+
+        .affiliate-logos img {
+            width: 30px;
+            margin-right: 20px;
+        }
+
+        .first-section,
+        .second-section,
+        .third-section,
+        .fourth-section {
+            width: 23%;
+            margin-bottom: 20px;
+        }
+
+        .second-section h2,
+        .third-section h2,
+        .fourth-section h2 {
+            margin-top: 80px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .second-section ul,
+        .third-section ul,
+        .fourth-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .second-section li,
+        .third-section li,
+        .fourth-section li {
+            margin-bottom: 5px;
+
+        }
+
+        .fourth-section li {
+            text-align: justify;
+        }
+
+        .fourth-section h2 {
+            margin-right: 60px;
+        }
+
+        .second-footer {
+            margin-top: 20px;
+            text-align: center;
+            background-color: #494848;
+            padding: 10px;
+            width: 100%;
+            margin-left: 20px;
+        }
+
+        .second-footer-section p {
+            color: white;
+            text-align: center;
+            font-size: small;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="custom-header-container">
+        <header class="custom-header">
+            <div class="custom-header-content">
+                <div class="custom-header-email">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Circle-icons-mail.svg/2048px-Circle-icons-mail.svg.png"
+                        alt="Email">
+                    <p>Email@Example.com</p>
+                </div>
+                <div class="custom-header-customer">
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Circle-icons-phone.svg/1200px-Circle-icons-phone.svg.png">
+                    <p>+91 9652500716</p>
+                </div>
+                <div class="custom-header-location">
+                    <img src="https://cdn.iconscout.com/icon/free/png-256/free-location-3079544-2561454.png"
+                        alt="Location">
+                    <p>123 Street, India</p>
+                </div>
+            </div>
+            <nav class="custom-header-nav">
+                <div class="social-media-logos">
+                    <a href="#" class="social-media-logo"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                            alt="Facebook"></a>
+                    <a href="#" class="social-media-logo"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/2062095_application_chat_communication_logo_whatsapp_icon.svg/480px-2062095_application_chat_communication_logo_whatsapp_icon.svg.png"
+                            alt="WhatsApp"></a>
+                    <a href="#" class="social-media-logo"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png"
+                            alt="Instagram"></a>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <header class="first-header">
+        <div class="logos">
+            <div class="logo">
+                <img src="/seafrenzy logo.jpeg" alt="Logo">
+            </div>
+            <div class="logo-title">
+                <img src="/images/seafrenzy name - Copy.png" alt="Logo">
+            </div>
+            <div class="location-details">
+                <img src="https://www.svgrepo.com/show/127575/location-sign.svg" alt="Location Icon">
+                <div id="location">Your location is being retrieved...</div>
+            </div>
+        </div>
+        <div class="utility-icons">
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+            </div>
+            <img src="https://www.svgrepo.com/show/113366/favorite.svg" alt="Favorite">
+            <img src="https://static-00.iconduck.com/assets.00/shopping-cart-icon-512x462-yrde1eu0.png" alt="Cart">
+            <img src="https://cdn-icons-png.flaticon.com/512/3682/3682281.png" alt="Profile">
+        </div>
+    </header>
+    <header class="secondary-header">
+        <nav class="nav-links">
+            <ul>
+                <li class="dropdown">
+                    <a href="#">Shop</a>
+                    <div class="dropdown-content">
+                        <a href="#">Fish</a>
+                        <a href="#">Crab</a>
+                        <a href="#">Prawn</a>
+                        <a href="#">Squid</a>
+                        <a href="#">Lobster</a>
+                    </div>
+                </li>
+                <li><a href="#">Recipes</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">Offers</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+        const locationDiv = document.getElementById("location");
+        const showLocation = async () => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    async (position) => {
+                        const latitude = position.coords.latitude;
+                        const longitude = position.coords.longitude;
+                        const response = await fetch(
+                            `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
+                        );
+                        const data = await response.json();
+                        const area = data.address.suburb || data.address.city_district || data.address.town || data.address.village || data.address.city || data.address.state;
+                        const city = data.address.city;
+                        locationDiv.innerHTML = `
+                  <div>${area}</div>
+                  <div>${city}</div>
+              `;
+                    },
+                    (error) => {
+                        switch (error.code) {
+                            case error.PERMISSION_DENIED:
+                                locationDiv.innerText = "Please allow access to location";
+                                break;
+                            case error.POSITION_UNAVAILABLE:
+                                locationDiv.innerText = "Location information unavailable";
+                                break;
+                            case error.TIMEOUT:
+                                locationDiv.innerText = "The request to get user location timed out";
+                                break;
+                            default:
+                                locationDiv.innerText = "An unknown error occurred while retrieving the location";
+                                break;
+                        }
+                    }
+                );
+            } else {
+                locationDiv.innerText = "Geolocation is not supported by this browser";
+            }
+        };
+        window.onload = showLocation;
+    </script>
+    <div class="recipes">
+        <img src="https://envato-shoebox-0.imgix.net/twenty20/production/uploads/items/7ae6ccb2-13a3-4a2b-9642-dbf98d0ad162/source?auto=compress%2Cformat&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&w=800&fit=max&markalign=center%2Cmiddle&markalpha=18&s=a82b3bb60202beb86ebad69afc669d1d"
+            alt="Black Pomfret Curry">
+        <h3>Black Pomfret Curry</h3>
+        <p>Body firm, very deep, oval, and compressed. Operculum absent; gill opening reduced to a vertical slit on the
+            side
+            of the body; gill membrane broadly united to isthmus. Dorsal and anal fins preceded by a series of 5 to 10
+            blade-like spines with anterior and posterior points.</p>
+
+        <h4>Checkout the recipe link here:<a href="https://youtu.be/6HVYX8FRSGA">Click here</a> </h4>
+    </div>
+    <div class="basic-details">
+        <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsezox5vxnd8UsD37y0KSxQ1msEmnM8yYZGZv6OGYF2pT8DhQbyI6nthBm5yTz6RpD6ZQ&usqp=CAU"
+                alt="time">
+            <h4>Dinner</h4>
+        </div>
+        <div>
+            <img src="https://cdns.iconmonstr.com/wp-content/releases/preview/2018/240/iconmonstr-clock-thin.png"
+                alt="text">
+            <h4>Cooking time: 1 hr</h4>
+        </div>
+        <div>
+            <img src="https://cdn-icons-png.freepik.com/512/6309/6309056.png" alt="serves">
+            <h4>Serves: 2</h4>
+        </div>
+    </div>
+    <div class="requirements">
+
+        <div class="form-toggle">
+
+            <button id="ingredient-button" data-type="ingredients"
+                onclick="toggleContent('ingredient')">Ingredients</button>
+            <button id="method-button" data-type="method" onclick="toggleContent('method')">Method</button>
+        </div>
+
+        <div id="ingredient-form" class="form-content active">
+            <ul>
+                <li>
+                    <h4><img src="https://m.media-amazon.com/images/I/51WexzfpMkL.jpg" alt="black pomfret">
+                        &nbsp;&nbsp;&nbsp;
+                        Black Pomfret Medium – 4 </h4>
+                </li>
+
+                <li>
+                    <h4><img src="https://5.imimg.com/data5/MG/RD/MY-67404688/oil-packaging-pouches-250x250.jpg"
+                            alt="oil"> &nbsp;&nbsp;&nbsp; oil –2 tsp</h4>
+                </li>
+
+                <li>
+                    <h4><img src="https://theartisanfoodcompany.com/wp-content/uploads/2021/10/Semolina-500g-Molino-Ferrari.jpg"
+                            alt="semolina"> &nbsp;&nbsp;&nbsp; semolina – 1/2 cup</h4>
+                </li>
+                <li>
+                    <h4><img src="https://www.thespruceeats.com/thmb/K5kkAqC1i9Ibjkeo_XeDRi34xWo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/spicy-pickled-garlic-2217592-Hero-05-b96ebc3fa082486296aadad8cdfdf158.jpg"
+                            alt=" cloves"> &nbsp;&nbsp;&nbsp; Gralic cloves – 3</h4>
+                </li>
+                <li>
+                    <h4><img src="https://www.thespruceeats.com/thmb/K5kkAqC1i9Ibjkeo_XeDRi34xWo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/spicy-pickled-garlic-2217592-Hero-05-b96ebc3fa082486296aadad8cdfdf158.jpg"
+                            alt="Ginger"> &nbsp;&nbsp;&nbsp; Ginger – 1 inch</h4>
+                </li>
+                <li>
+                    <h4><img src="https://5.imimg.com/data5/SELLER/Default/2020/12/DH/LE/BF/112353148/fennel-seeds-500x500.jpg"
+                            alt="Fennel seeds"> &nbsp;&nbsp;&nbsp; Fennel seeds – 1 tsp</h4>
+                </li>
+                <li>
+                    <h4><img src="https://5.imimg.com/data5/SELLER/Default/2022/5/EE/YN/PS/310912/packed-black-pepper-whole-500x500.png"
+                            alt="black peppercorns"> &nbsp;&nbsp;&nbsp; Black peppercorns – 4</h4>
+                </li>
+                <li>
+                    <h4><img src="https://www.iniyaorganicestate.com/wp-content/uploads/2023/02/Cloves-Pack.jpg"
+                            alt="cloves"> &nbsp;&nbsp;&nbsp; Cloves – 3</h4>
+                </li>
+                <li>
+                    <h4><img src="https://5.imimg.com/data5/SELLER/Default/2022/11/PW/HD/NJ/111530212/81x3ykdrdbl-sl1500-.jpg"
+                            alt="Turmeric powder"> &nbsp;&nbsp;&nbsp; Turmeric powder – 1/2 tsp</h4>
+                </li>
+                <li>
+                    <h4><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCRt9DYlVi4RtvUojENw_Gg3vuB3MelvteSw&usqp=CAU"
+                            alt="Dry red chiilies"> &nbsp;&nbsp;&nbsp; Dry red chillies – 4</h4>
+                </li>
+                <li>
+                    <h4><img src="https://m.media-amazon.com/images/I/41XiI-EELrL.jpg" alt="tamarind">
+                        &nbsp;&nbsp;&nbsp; Small Tamarind– 1
+                    </h4>
+                </li>
+                <li>
+                    <h4><img src="https://5.imimg.com/data5/DI/IH/MY-5553683/fresh-coriander-leaves.jpg"
+                            alt="corrainder leaves"> &nbsp;&nbsp;&nbsp; Fresh Corriander leaves – 1/2 cup</h4>
+                </li>
+                <li>
+                    <h4><img src="https://m.media-amazon.com/images/I/61TipChE24L._AC_UF350,350_QL80_.jpg" alt="salt">
+                        &nbsp;&nbsp;&nbsp; Salt as per taste</h4>
+                </li>
+            </ul>
+        </div>
+        <div id="method-form" class="form-content">
+            <p>1.Here’s how you can make one of the best Machi Recipes:</p>
+            <p>2. Place the fish steaks on a plate and sprinkle some salt. Mix and set aside for 5 minutes.</p>
+            <p>3.Add garlic cloves, ginger, fennel seeds, black peppercorns, cloves, turmeric powder, dry red chillies,
+                tamarind, and coriander leaves in a mixer grinder. Grind them well.</p>
+            <p>4.Add about 3 tbsp of water to the masala mix to make a smooth batter.</p>
+            <p>5.Add salt into the spice mix at the end and blend well.</p>
+            <p>6 .Evenly coat the fish steaks with the spice batter and marinate for another 15 minutes.</p>
+            <p>7.Heat oil in a pan. Apply the marinated pomfret steaks with semolina nicely on both sides and place them
+                carefully over the hot oil. Fry on medium heat on each side for about 3 minutes.</p>
+            <p>8.Place the fish pieces on a plate and garnish with more coriander leaves, lemon juice and a salad.</p>
+        </div>
+
+
+        <script>
+
+            function toggleContent(contentType) {
+                // Get the content elements
+                var ingredientContent = document.getElementById('ingredient-form');
+                var methodContent = document.getElementById('method-form');
+                var ingredientButton = document.getElementById('ingredient-button');
+                var methodButton = document.getElementById('method-button');
+                var underline = document.querySelector('.underline');
+
+                // Toggle the visibility based on the content type
+                if (contentType === 'ingredient') {
+                    ingredientContent.classList.add('active');
+                    methodContent.classList.remove('active');
+                    // Update button styles
+                    ingredientButton.classList.add('highlighted');
+                    methodButton.classList.remove('highlighted');
+                    // Move the underline to the ingredient button
+                    underline.style.left = '0';
+                    // Show the underline
+                    underline.style.display = 'block';
+                } else {
+                    ingredientContent.classList.remove('active');
+                    methodContent.classList.add('active');
+                    // Update button styles
+                    methodButton.classList.add('highlighted');
+                    ingredientButton.classList.remove('highlighted');
+                    // Move the underline to the method button
+                    underline.style.left = 'calc(100% + 10px)';
+                    // Show the underline
+                    underline.style.display = 'block';
+                }
+            }
+
+            // Call the toggleContent function to set the default state
+            window.onload = function () {
+                toggleContent('ingredient');
+            };
+
+
+        </script>
+
+        <div class="shopping-apps">
+            <label for="shopping-app">Shop ingredients:</label>
+            <div class="dropdown1">
+                <select id="shopping-app" class="shopping-dropdown" onchange="displayForm(this.value)">
+                    <option value="Zepto">Zepto</option>
+                    <option value="BigBasket">BigBasket</option>
+                </select>
+            </div>
+        </div>
+
+        <script>
+            function shopIngredients() {
+                var selectedApp = document.getElementById("shopping-app").value;
+                // Open the selected shopping app in a new tab
+                window.open(selectedApp, '_blank');
+            }
+        </script>
+        <div class="shop-ingredients" id="zeptoForm">
+            <div class="ingredients-header">
+                <h2>Shop Ingredients - Zepto</h2>
+                <h4>Black pomfret curry</h4>
+                <ul>
+                    <li>
+                        <div id="zeptoForm" style="display: none;">
+                            <div class="ingredient-item">
+                                <input type="checkbox" class="checkbox" checked>
+                                <img src="https://5.imimg.com/data5/MG/RD/MY-67404688/oil-packaging-pouches-250x250.jpg"
+                                    alt="Oil" />&nbsp;&nbsp;
+                                <span class="ingredient-details">
+                                    <h4>Fresh edible sunflower oil</h4>
+                                    <h3>1 Litre</h3>
+                                </span>
+                                <h2>Rs 105</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="quantity-control">
+                                    <button class="decrement">-</button>
+                                    <span class="quantity">1</span>
+                                    <button class="increment">+</button>
+                                </div>
+                                <button class="add-to-basket">Add to Basket</button>
+                            </div>
+                    </li>
+                    <li>
+                        <div class="ingredient-item">
+                            <input type="checkbox" class="checkbox" checked>
+                            <img src="https://theartisanfoodcompany.com/wp-content/uploads/2021/10/Semolina-500g-Molino-Ferrari.jpg"
+                                alt="Selmonia" />&nbsp;&nbsp;
+                            <span class="ingredient-details">
+                                <h4>Selmonia</h4>
+                                <h3>250 Grams</h3>
+                            </span>
+                            <h2>Rs 80</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="quantity-control">
+                                <button class="decrement">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increment">+</button>
+                            </div>
+                            <button class="add-to-basket">Add to Basket</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ingredient-item">
+                            <input type="checkbox" class="checkbox" checked>
+                            <img src="https://www.thespruceeats.com/thmb/K5kkAqC1i9Ibjkeo_XeDRi34xWo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/spicy-pickled-garlic-2217592-Hero-05-b96ebc3fa082486296aadad8cdfdf158.jpg"
+                                alt="Garlic cloves" />&nbsp;&nbsp;
+                            <span class="ingredient-details">
+                                <h4>Fresh Garlic cloves</h4>
+                                <h3>200 Grams</h3>
+                            </span>
+                            <h2>Rs 100</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="quantity-control">
+                                <button class="decrement">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increment">+</button>
+                            </div>
+                            <button class="add-to-basket">Add to Basket</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ingredient-item">
+                            <input type="checkbox" class="checkbox" checked>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMUu9KvQnEC8_zeWn96Ihcs0o7OkfxHvDibg&usqp=CAU"
+                                alt="Ginger" />&nbsp;&nbsp;
+                            <span class="ingredient-details">
+                                <h4>Spice forest dry ginger</h4>
+                                <h3>500 Grams</h3>
+                            </span>
+                            <h2>Rs 150</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="quantity-control">
+                                <button class="decrement">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increment">+</button>
+                            </div>
+                            <button class="add-to-basket">Add to Basket</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ingredient-item">
+                            <input type="checkbox" class="checkbox" checked>
+                            <img src="https://5.imimg.com/data5/SELLER/Default/2020/12/DH/LE/BF/112353148/fennel-seeds-500x500.jpg"
+                                alt="Fennel seeds" />&nbsp;&nbsp;
+                            <span class="ingredient-details">
+                                <h4>Farm king fennel Seeds pack</h4>
+                                <h3>500 Grams</h3>
+                            </span>
+                            <h2>Rs 150</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="quantity-control">
+                                <button class="decrement">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increment">+</button>
+                            </div>
+                            <button class="add-to-basket">Add to Basket</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ingredient-item">
+                            <input type="checkbox" class="checkbox" checked>
+                            <img src="https://5.imimg.com/data5/SELLER/Default/2022/5/EE/YN/PS/310912/packed-black-pepper-whole-500x500.png"
+                                alt="black peppercorn" />&nbsp;&nbsp;
+                            <span class="ingredient-details">
+                                <h4>Spicy premium black peppercorns</h4>
+                                <h3>1 kg</h3>
+                            </span>
+                            <h2>Rs 300</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="quantity-control">
+                                <button class="decrement">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increment">+</button>
+                            </div>
+                            <button class="add-to-basket">Add to Basket</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ingredient-item">
+                            <input type="checkbox" class="checkbox" checked>
+                            <img src="https://www.iniyaorganicestate.com/wp-content/uploads/2023/02/Cloves-Pack.jpg"
+                                alt="Cloves" />&nbsp;&nbsp;
+                            <span class="ingredient-details">
+                                <h4>Nature and organic whole cloves</h4>
+                                <h3>1 kg</h3>
+                            </span>
+                            <h2>Rs 1000</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="quantity-control">
+                                <button class="decrement">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increment">+</button>
+                            </div>
+                            <button class="add-to-basket">Add to Basket</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ingredient-item">
+                            <input type="checkbox" class="checkbox" checked>
+                            <img src="https://5.imimg.com/data5/SELLER/Default/2022/11/PW/HD/NJ/111530212/81x3ykdrdbl-sl1500-.jpg"
+                                alt="Turmeric powder" />&nbsp;&nbsp;
+                            <span class="ingredient-details">
+                                <h4>Turmeric powder-enhances flavour</h4>
+                                <h3>300 grams</h3>
+                            </span>
+                            <h2>Rs 130</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="quantity-control">
+                                <button class="decrement">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increment">+</button>
+                            </div>
+                            <button class="add-to-basket">Add to Basket</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ingredient-item">
+                            <input type="checkbox" class="checkbox" checked>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCRt9DYlVi4RtvUojENw_Gg3vuB3MelvteSw&usqp=CAU"
+                                alt="Dry red chillies" />&nbsp;&nbsp;
+                            <span class="ingredient-details">
+                                <h4>Kutilal Red chilly-super spicy</h4>
+                                <h3>700 grams</h3>
+                            </span>
+                            <h2>Rs 230</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="quantity-control">
+                                <button class="decrement">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increment">+</button>
+                            </div>
+                            <button class="add-to-basket">Add to Basket</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ingredient-item">
+                            <input type="checkbox" class="checkbox" checked>
+                            <img src="https://m.media-amazon.com/images/I/41XiI-EELrL.jpg" alt="Tamarind" />&nbsp;&nbsp;
+                            <span class="ingredient-details">
+                                <h4>Fresh Tamarind pieces</h4>
+                                <h3>1 kg</h3>
+                            </span>
+                            <h2>Rs 90</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="quantity-control">
+                                <button class="decrement">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increment">+</button>
+                            </div>
+                            <button class="add-to-basket">Add to Basket</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ingredient-item">
+                            <input type="checkbox" class="checkbox" checked>
+                            <img src="https://5.imimg.com/data5/DI/IH/MY-5553683/fresh-coriander-leaves.jpg"
+                                alt="Corriander" />&nbsp;&nbsp;
+                            <span class="ingredient-details">
+                                <h4>Fresh and organic corrainder leaves</h4>
+                                <h3>200 grams</h3>
+                            </span>
+                            <h2>Rs 50</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="quantity-control">
+                                <button class="decrement">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increment">+</button>
+                            </div>
+                            <button class="add-to-basket">Add to Basket</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ingredient-item">
+                            <input type="checkbox" class="checkbox" checked>
+                            <img src="https://m.media-amazon.com/images/I/61TipChE24L._AC_UF350,350_QL80_.jpg"
+                                alt="Salt" />&nbsp;&nbsp;
+                            <span class="ingredient-details">
+                                <h4>Powder Tata salt</h4>
+                                <h3>1 pack</h3>
+                            </span>
+                            <h2>Rs 30</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="quantity-control">
+                                <button class="decrement">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increment">+</button>
+                            </div>
+                            <button class="add-to-basket">Add to Basket</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <br>
+            <div class="form-group">
+                <!-- Button to submit Big Basket form -->
+                <button type="submit">Add selected to - Zepto</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    </div>
+    <div class="shop-ingredients" id="bigBasketForm" style="display: none;">
+        <div class="ingredients-header">
+            <h2>Shop Ingredients - Big Basket</h2>
+            <h4>Black pomfret curry</h4>
+            <li>
+                <div class="ingredient-item">
+                    <input type="checkbox" class="checkbox" checked>
+                    <img src="https://www.thespruceeats.com/thmb/K5kkAqC1i9Ibjkeo_XeDRi34xWo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/spicy-pickled-garlic-2217592-Hero-05-b96ebc3fa082486296aadad8cdfdf158.jpg"
+                        alt="Garlic cloves" />&nbsp;&nbsp;
+                    <span class="ingredient-details">
+                        <h4>Fresh Garlic cloves</h4>
+                        <h3>200 Grams</h3>
+                    </span>
+                    <h2>Rs 100</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="quantity-control">
+                        <button class="decrement">-</button>
+                        <span class="quantity">1</span>
+                        <button class="increment">+</button>
+                    </div>
+                    <button class="add-to-basket">Add to Basket</button>
+                </div>
+            </li>
+            <li>
+                <div class="ingredient-item">
+                    <input type="checkbox" class="checkbox" checked>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMUu9KvQnEC8_zeWn96Ihcs0o7OkfxHvDibg&usqp=CAU"
+                        alt="Ginger" />&nbsp;&nbsp;
+                    <span class="ingredient-details">
+                        <h4>Spice forest dry ginger</h4>
+                        <h3>500 Grams</h3>
+                    </span>
+                    <h2>Rs 150</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="quantity-control">
+                        <button class="decrement">-</button>
+                        <span class="quantity">1</span>
+                        <button class="increment">+</button>
+                    </div>
+                    <button class="add-to-basket">Add to Basket</button>
+                </div>
+            </li>
+            <li>
+                <div class="ingredient-item">
+                    <input type="checkbox" class="checkbox" checked>
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2020/12/DH/LE/BF/112353148/fennel-seeds-500x500.jpg"
+                        alt="Fennel seeds" />&nbsp;&nbsp;
+                    <span class="ingredient-details">
+                        <h4>Farm king fennel Seeds pack</h4>
+                        <h3>500 Grams</h3>
+                    </span>
+                    <h2>Rs 150</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="quantity-control">
+                        <button class="decrement">-</button>
+                        <span class="quantity">1</span>
+                        <button class="increment">+</button>
+                    </div>
+                    <button class="add-to-basket">Add to Basket</button>
+                </div>
+            </li>
+            <li>
+                <div class="ingredient-item">
+                    <input type="checkbox" class="checkbox" checked>
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2022/5/EE/YN/PS/310912/packed-black-pepper-whole-500x500.png"
+                        alt="black peppercorn" />&nbsp;&nbsp;
+                    <span class="ingredient-details">
+                        <h4>Spicy premium black peppercorns</h4>
+                        <h3>1 kg</h3>
+                    </span>
+                    <h2>Rs 300</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="quantity-control">
+                        <button class="decrement">-</button>
+                        <span class="quantity">1</span>
+                        <button class="increment">+</button>
+                    </div>
+                    <button class="add-to-basket">Add to Basket</button>
+                </div>
+            </li>
+            <li>
+                <div class="ingredient-item">
+                    <input type="checkbox" class="checkbox" checked>
+                    <img src="https://www.iniyaorganicestate.com/wp-content/uploads/2023/02/Cloves-Pack.jpg"
+                        alt="Cloves" />&nbsp;&nbsp;
+                    <span class="ingredient-details">
+                        <h4>Nature and organic whole cloves</h4>
+                        <h3>1 kg</h3>
+                    </span>
+                    <h2>Rs 1000</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="quantity-control">
+                        <button class="decrement">-</button>
+                        <span class="quantity">1</span>
+                        <button class="increment">+</button>
+                    </div>
+                    <button class="add-to-basket">Add to Basket</button>
+                </div>
+            </li>
+            <li>
+                <div class="ingredient-item">
+                    <input type="checkbox" class="checkbox" checked>
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2022/11/PW/HD/NJ/111530212/81x3ykdrdbl-sl1500-.jpg"
+                        alt="Turmeric powder" />&nbsp;&nbsp;
+                    <span class="ingredient-details">
+                        <h4>Turmeric powder-enhances flavour</h4>
+                        <h3>300 grams</h3>
+                    </span>
+                    <h2>Rs 130</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="quantity-control">
+                        <button class="decrement">-</button>
+                        <span class="quantity">1</span>
+                        <button class="increment">+</button>
+                    </div>
+                    <button class="add-to-basket">Add to Basket</button>
+                </div>
+            </li>
+            <li>
+                <div class="ingredient-item">
+                    <input type="checkbox" class="checkbox" checked>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCRt9DYlVi4RtvUojENw_Gg3vuB3MelvteSw&usqp=CAU"
+                        alt="Dry red chillies" />&nbsp;&nbsp;
+                    <span class="ingredient-details">
+                        <h4>Kutilal Red chilly-super spicy</h4>
+                        <h3>700 grams</h3>
+                    </span>
+                    <h2>Rs 230</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="quantity-control">
+                        <button class="decrement">-</button>
+                        <span class="quantity">1</span>
+                        <button class="increment">+</button>
+                    </div>
+                    <button class="add-to-basket">Add to Basket</button>
+                </div>
+            </li>
+            <li>
+                <div class="ingredient-item">
+                    <input type="checkbox" class="checkbox" checked>
+                    <img src="https://m.media-amazon.com/images/I/41XiI-EELrL.jpg" alt="Tamarind" />&nbsp;&nbsp;
+                    <span class="ingredient-details">
+                        <h4>Fresh Tamarind pieces</h4>
+                        <h3>1 kg</h3>
+                    </span>
+                    <h2>Rs 90</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="quantity-control">
+                        <button class="decrement">-</button>
+                        <span class="quantity">1</span>
+                        <button class="increment">+</button>
+                    </div>
+                    <button class="add-to-basket">Add to Basket</button>
+                </div>
+            </li>
+            <li>
+                <div class="ingredient-item">
+                    <input type="checkbox" class="checkbox" checked>
+                    <img src="https://5.imimg.com/data5/DI/IH/MY-5553683/fresh-coriander-leaves.jpg"
+                        alt="Corriander" />&nbsp;&nbsp;
+                    <span class="ingredient-details">
+                        <h4>Fresh and organic corrainder leaves</h4>
+                        <h3>200 grams</h3>
+                    </span>
+                    <h2>Rs 50</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="quantity-control">
+                        <button class="decrement">-</button>
+                        <span class="quantity">1</span>
+                        <button class="increment">+</button>
+                    </div>
+                    <button class="add-to-basket">Add to Basket</button>
+                </div>
+            </li>
+            <li>
+                <div class="ingredient-item">
+                    <input type="checkbox" class="checkbox" checked>
+                    <img src="https://m.media-amazon.com/images/I/61TipChE24L._AC_UF350,350_QL80_.jpg"
+                        alt="Salt" />&nbsp;&nbsp;
+                    <span class="ingredient-details">
+                        <h4>Powder Tata salt</h4>
+                        <h3>1 pack</h3>
+                    </span>
+                    <h2>Rs 30</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="quantity-control">
+                        <button class="decrement">-</button>
+                        <span class="quantity">1</span>
+                        <button class="increment">+</button>
+                    </div>
+                    <button class="add-to-basket">Add to Basket</button>
+                </div>
+            </li>
+            <li>
+                <div class="ingredient-item">
+                    <input type="checkbox" class="checkbox" checked>
+                    <img src="https://5.imimg.com/data5/MG/RD/MY-67404688/oil-packaging-pouches-250x250.jpg"
+                        alt="Oil" />&nbsp;&nbsp;
+                    <span class="ingredient-details">
+                        <h4>Fresh edible sunflower oil</h4>
+                        <h3>1 Litre</h3>
+                    </span>
+                    <h2>Rs 105</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="quantity-control">
+                        <button class="decrement">-</button>
+                        <span class="quantity">1</span>
+                        <button class="increment">+</button>
+                    </div>
+                    <button class="add-to-basket">Add to Basket</button>
+                </div>
+            </li>
+            </ul>
+        </div>
+        <br>
+        <div class="form-group">
+            <!-- Button to submit Big Basket form -->
+            <button type="submit">Add selected to - Big Basket</button>
+        </div>
+    </div>
+    <script>
+        function displayForm(formType) {
+            if (formType === 'Zepto') {
+                document.getElementById('zeptoForm').style.display = 'block';
+                document.getElementById('bigBasketForm').style.display = 'none';
+            } else if (formType === 'BigBasket') {
+                document.getElementById('zeptoForm').style.display = 'none';
+                document.getElementById('bigBasketForm').style.display = 'block';
+            }
+        }
+
+    </script>
+
+    <script>
+        const quantityControls = document.querySelectorAll('.quantity-control');
+
+// Add event listener to each quantity control
+quantityControls.forEach(control => {
+    const decrementBtn = control.querySelector('.decrement');
+    const incrementBtn = control.querySelector('.increment');
+    const quantitySpan = control.querySelector('.quantity');
+    const priceElement = control.closest('.ingredient-item').querySelector('.price');
+
+    decrementBtn.addEventListener('click', () => {
+        let quantity = parseInt(quantitySpan.textContent);
+        if (quantity > 1) {
+            quantity--;
+            quantitySpan.textContent = quantity;
+            updatePrice(priceElement, quantity);
+        }
+    });
+
+    incrementBtn.addEventListener('click', () => {
+        let quantity = parseInt(quantitySpan.textContent);
+        quantity++;
+        quantitySpan.textContent = quantity;
+        updatePrice(priceElement, quantity);
+    });
+});
+
+function updatePrice(priceElement, quantity) {
+    const pricePerUnit = parseFloat(priceElement.getAttribute('data-price'));
+    const totalPrice = pricePerUnit * quantity;
+    priceElement.textContent = 'Rs ' + totalPrice.toFixed(2);
+}
+</script>
+    </script>
+
+
+    <footer>
+        <!-- First Footer Section -->
+        <div class="first-footer-section">
+            <!-- First Section -->
+            <div class="first-section">
+                <div class="logo1">
+                    <img src="/seafrenzy logo.jpeg" alt="Logo">
+                    <div class="logo-title1">
+                        <h1>SeaFrenzy</h1>
+                    </div>
+                </div>
+                <div class="partner-logos">
+                    <h4>EXPERIENCE SEAFRENZY APP ON MOBILE</h4>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/2560px-Download_on_the_App_Store_Badge.svg.png"
+                        alt="Partner 1">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1280px-Google_Play_Store_badge_EN.svg.png"
+                        alt="Partner 2">
+                </div>
+                <h3>KEEP IN TOUCH</h3>
+                <div class="affiliate-logos">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                        alt="Affiliate 1">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/2062095_application_chat_communication_logo_whatsapp_icon.svg/480px-2062095_application_chat_communication_logo_whatsapp_icon.svg.png"
+                        alt="Affiliate 2">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png"
+                        alt="Affiliate 3">
+                </div>
+            </div>
+
+            <div class="second-section">
+                <h2>USEFUL LINKS</h2>
+                <ul>
+                    <li><a href="#">Why SeaFrenzy?</a></li>
+                    <li><a href="#">Refer & Earn</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+            </div>
+            <!-- Third Section -->
+            <div class="third-section">
+                <h2>QUICK LINKS</h2>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">T&C</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                </ul>
+            </div>
+            <!-- Fourth Section -->
+            <div class="fourth-section">
+                <h2>CONTACT US</h2>
+                <ul>
+                    <li>Call: +91 9652500716</li>
+                    <li>Email: Email@Example.com</li>
+                    <li>OFFICE ADDRESS:
+                        DELIGHTFUL GOURMET PVT LTD
+                        Maruthi Infotech Center 11/1,12/1 B wing 1st
+                        Floor Amarjyothi layout Intermediate ring
+                        road Domlur, B.B.M.P East, Telangana-560071
+                        Hyderabad, Telangana - 500037</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <footer class="second-footer">
+        <div class="second-footer-section">
+            <p>© 2024 Delightful Gourmet Pvt Ltd. All Rights Reserved..</p>
+            <p>Seafrenzy is your one-stop fresh sea food delivery shop. In here, you get nothing but the
+                freshest
+                seafood, delivered straight to your doorstep. Now you can buy sea food online anytime at your
+                convenience. Indulge in our diverse selection: Seafood (Fish, Prawns, Crabs) lobstsers on
+                demand.
+                All our products are completely natural and healthy.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
